@@ -1,7 +1,7 @@
 let carrinho = [];
 let categoriaAtual = 'todos';
 let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-let contadorVisitas = parseInt(localStorage.getItem('contadorVisitas')) || 0;
+let contadorGlobal = parseInt(localStorage.getItem('contadorGlobalVisitas')) || 0;
 
 function renderizarProdutos(categoria = 'todos', produtosParaMostrar = null) {
     const container = document.getElementById('produtos-container');
@@ -366,17 +366,28 @@ function salvarPedido(pedido) {
 // Atualizar a função registrarAcesso para usar uma API serverless
 async function registrarAcesso() {
     try {
-        // Incrementar o contador local
-        contadorVisitas += 1;
+        // Verificar se já registrou visita hoje
+        const hoje = new Date().toDateString();
+        const ultimaVisita = localStorage.getItem('ultimaVisita');
         
-        // Multiplicar por 1.0865 e arredondar para baixo
-        const visitasAjustadas = Math.floor(contadorVisitas * 1.0865);
-        
-        // Salvar no localStorage
-        localStorage.setItem('contadorVisitas', contadorVisitas);
-        
-        // Atualizar a exibição
-        atualizarContadorVisitas(visitasAjustadas);
+        if (ultimaVisita !== hoje) {
+            // Incrementar contador global
+            contadorGlobal += 1;
+            
+            // Multiplicar por 1.0865 e arredondar para baixo
+            const visitasAjustadas = Math.floor(contadorGlobal * 1.0865);
+            
+            // Salvar no localStorage
+            localStorage.setItem('contadorGlobalVisitas', contadorGlobal);
+            localStorage.setItem('ultimaVisita', hoje);
+            
+            // Atualizar a exibição
+            atualizarContadorVisitas(visitasAjustadas);
+        } else {
+            // Se já visitou hoje, apenas mostrar o contador atual
+            const visitasAjustadas = Math.floor(contadorGlobal * 1.0865);
+            atualizarContadorVisitas(visitasAjustadas);
+        }
     } catch (error) {
         console.error('Erro ao registrar acesso:', error);
     }
@@ -399,7 +410,7 @@ function atualizarContadorVisitas(numero) {
         <div class="contador-container">
             <span class="icone-visitantes">👥</span>
             <span class="numero-visitantes">${numeroFormatado}</span>
-            <span class="texto-visitantes">visitas</span>
+            <span class="texto-visitantes">visitas totais</span>
         </div>
     `;
 }
