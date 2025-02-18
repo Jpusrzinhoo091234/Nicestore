@@ -1,6 +1,15 @@
 const produtos = {
     streaming: [
         {
+            id: 1,
+            nome: "YOUTUBE PREMIUM + MUSIC + BRINDE | 30 DIAS",
+            emoji: "▶️",
+            preco: 6.00,
+            destaque: "AUTOMÁTICO",
+            estoque: 100,
+            descricao: "✅ Entrega automática\n✅ YouTube Premium\n✅ YouTube Music\n✅ Brinde exclusivo\n✅ Duração: 30 dias"
+        },
+        {
             id: 13,
             nome: "YOUTUBE PREMIUM + MUSIC + BRINDE | 30 DIAS",
             emoji: "▶️",

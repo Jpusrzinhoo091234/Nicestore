@@ -2,18 +2,19 @@ let carrinho = [];
 let categoriaAtual = 'todos';
 let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
-function renderizarProdutos(categoria = 'todos') {
+function renderizarProdutos(categoria = 'todos', produtosParaMostrar = null) {
     const container = document.getElementById('produtos-container');
     container.innerHTML = '';
 
-    let produtosParaMostrar = [];
-    
-    if (categoria === 'todos') {
-        // Juntar todos os produtos de todas as categorias
-        produtosParaMostrar = Object.values(produtos).flat();
-    } else {
-        // Pegar produtos apenas da categoria selecionada
-        produtosParaMostrar = produtos[categoria] || [];
+    // Se não foram passados produtos específicos, seleciona com base na categoria
+    if (produtosParaMostrar === null) {
+        if (categoria === 'todos') {
+            // Juntar todos os produtos de todas as categorias
+            produtosParaMostrar = Object.values(produtos).flat();
+        } else {
+            // Pegar produtos apenas da categoria selecionada
+            produtosParaMostrar = produtos[categoria] || [];
+        }
     }
 
     if (produtosParaMostrar.length === 0) {
@@ -265,11 +266,17 @@ function mostrarErro(mensagem, tipo = 'erro') {
     // ... resto do código
 }
 
-function buscarProdutos(termo) {
-    const produtosFiltrados = produtos.filter(produto => 
-        produto.nome.toLowerCase().includes(termo.toLowerCase())
-    );
-    renderizarProdutos('todos', produtosFiltrados);
+function pesquisarProdutos(termo) {
+    if (!termo.trim()) {
+        renderizarProdutos(categoriaAtual);
+        return;
+    }
+
+    const produtosFiltrados = Object.values(produtos)
+        .flat()
+        .filter(produto => produto.nome.toLowerCase().includes(termo.toLowerCase()));
+    
+    renderizarProdutos(categoriaAtual, produtosFiltrados);
 }
 
 function ordenarProdutos(tipo) {
@@ -350,6 +357,6 @@ function salvarPedido(pedido) {
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     renderizarCategorias();
-    renderizarProdutos();
+    renderizarProdutos('todos');
     atualizarCarrinho();
 }); 
