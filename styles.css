@@ -460,24 +460,43 @@ h1 {
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: var(--card-bg);
-    color: var(--text-light);
-    border: 1px solid var(--border);
-    border-radius: 40px;
+    background: #25D366; /* Cor do WhatsApp */
+    color: white;
+    border: none;
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 600;
     transition: all 0.2s ease;
 }
 
 .suporte-btn:hover {
-    background: var(--hover);
-    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    background: #1fa855;
+}
+
+.suporte-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 .suporte-btn svg {
     width: 20px;
     height: 20px;
+}
+
+/* Versão mobile */
+@media (max-width: 768px) {
+    .suporte-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .suporte-btn svg {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -503,11 +522,6 @@ h1 {
 
     .header-actions {
         gap: 12px;
-    }
-
-    .suporte-btn {
-        padding: 8px 16px;
-        font-size: 14px;
     }
 
     .cart-icon svg {
@@ -793,9 +807,16 @@ h1 {
 
 /* Adicionar ao CSS existente */
 .produto-estoque {
-    color: var(--text-light);
-    font-size: 14px;
-    margin-bottom: 12px;
+    background: var(--accent);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin: 8px 0;
+}
+
+.produto-estoque.baixo {
+    background: #ef4444;
 }
 
 .produto-descricao {
@@ -829,4 +850,48 @@ h1 {
 
 button {
     touch-action: manipulation;
+}
+
+.btn-favorito {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    z-index: 1;
+}
+
+.btn-favorito:hover {
+    transform: scale(1.2);
+}
+
+.btn-favorito.ativo {
+    animation: heartBeat 0.3s ease;
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.carrinho-vazio {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--text-light);
+}
+
+.carrinho-vazio-emoji {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.carrinho-vazio-texto {
+    font-size: 16px;
+    line-height: 1.5;
 } 

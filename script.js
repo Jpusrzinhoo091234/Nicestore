@@ -1,5 +1,6 @@
 let carrinho = [];
 let categoriaAtual = 'todos';
+let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
 function renderizarProdutos(categoria = 'todos') {
     const container = document.getElementById('produtos-container');
@@ -52,8 +53,12 @@ function renderizarProdutos(categoria = 'todos') {
 }
 
 function renderizarProdutoCard(produto) {
+    const isFavorito = favoritos.includes(produto.id);
     return `
         ${produto.destaque ? `<div class="produto-destaque">${produto.destaque}</div>` : ''}
+        <button class="btn-favorito ${isFavorito ? 'ativo' : ''}" onclick="toggleFavorito(${produto.id})">
+            ${isFavorito ? '❤️' : '🤍'}
+        </button>
         <div class="produto-emoji">${produto.emoji}</div>
         <div class="produto-nome">${produto.nome}</div>
         <div class="produto-estoque">${produto.estoque} em estoque</div>
@@ -75,33 +80,45 @@ function filtrarProdutos(categoria) {
     });
 }
 
-function adicionarAoCarrinho(id) {
-    // Encontrar o produto em todas as categorias
-    let produto = null;
-    for (let categoria in produtos) {
-        produto = produtos[categoria].find(p => p.id === id);
-        if (produto) break;
+async function adicionarAoCarrinho(id) {
+    const btn = event.currentTarget;
+    btn.disabled = true;
+    btn.innerHTML = '⌛ Adicionando...';
+    
+    try {
+        // Simular delay de rede
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        // Encontrar o produto em todas as categorias
+        let produto = null;
+        for (let categoria in produtos) {
+            produto = produtos[categoria].find(p => p.id === id);
+            if (produto) break;
+        }
+
+        if (!produto) {
+            mostrarNotificacao('Erro ao adicionar produto!', 'erro');
+            return;
+        }
+
+        const itemNoCarrinho = carrinho.find(item => item.id === id);
+
+        if (itemNoCarrinho) {
+            itemNoCarrinho.quantidade++;
+            mostrarNotificacao(`+1 ${produto.nome} no carrinho! 🛒`, 'sucesso');
+        } else {
+            carrinho.push({
+                ...produto,
+                quantidade: 1
+            });
+            mostrarNotificacao(`${produto.nome} adicionado ao carrinho! 🛒`, 'sucesso');
+        }
+
+        atualizarCarrinho();
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = 'adicionar ao carrinho';
     }
-
-    if (!produto) {
-        mostrarNotificacao('Erro ao adicionar produto!', 'erro');
-        return;
-    }
-
-    const itemNoCarrinho = carrinho.find(item => item.id === id);
-
-    if (itemNoCarrinho) {
-        itemNoCarrinho.quantidade++;
-        mostrarNotificacao(`+1 ${produto.nome} no carrinho! 🛒`, 'sucesso');
-    } else {
-        carrinho.push({
-            ...produto,
-            quantidade: 1
-        });
-        mostrarNotificacao(`${produto.nome} adicionado ao carrinho! 🛒`, 'sucesso');
-    }
-
-    atualizarCarrinho();
 }
 
 function atualizarCarrinho() {
@@ -166,7 +183,7 @@ function toggleCarrinho() {
 
 function contatarSuporte() {
     const numeroWhatsApp = "5524981128510";
-    const mensagem = "Olá! Preciso de suporte na loja.";
+    const mensagem = "Olá! Preciso de ajuda com um produto 😊";
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
 }
@@ -239,15 +256,13 @@ function mostrarNotificacao(mensagem, tipo = 'sucesso') {
     }, 3000);
 }
 
-function mostrarErro(mensagem) {
+function mostrarErro(mensagem, tipo = 'erro') {
     const notificacao = document.getElementById('notificacao');
-    notificacao.textContent = mensagem;
-    notificacao.style.background = '#ff4444';
-    notificacao.style.display = 'block';
-    
-    setTimeout(() => {
-        notificacao.style.display = 'none';
-    }, 3000);
+    notificacao.innerHTML = `
+        <div class="notificacao-icon">${tipo === 'erro' ? '❌' : '⚠️'}</div>
+        <div class="notificacao-mensagem">${mensagem}</div>
+    `;
+    // ... resto do código
 }
 
 function buscarProdutos(termo) {
@@ -300,6 +315,36 @@ function limparCarrinho() {
         atualizarCarrinho();
         mostrarNotificacao('Carrinho limpo com sucesso!');
     }
+}
+
+function toggleFavorito(id) {
+    const index = favoritos.indexOf(id);
+    if (index === -1) {
+        favoritos.push(id);
+        mostrarNotificacao('Produto adicionado aos favoritos! ❤️', 'sucesso');
+    } else {
+        favoritos.splice(index, 1);
+        mostrarNotificacao('Produto removido dos favoritos', 'info');
+    }
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+    renderizarProdutos(categoriaAtual);
+}
+
+function filtrarPorPreco(min, max) {
+    const produtosFiltrados = Object.values(produtos)
+        .flat()
+        .filter(p => p.preco >= min && p.preco <= max);
+    renderizarProdutos('todos', produtosFiltrados);
+}
+
+function salvarPedido(pedido) {
+    const historico = JSON.parse(localStorage.getItem('historico') || '[]');
+    historico.push({
+        ...pedido,
+        data: new Date().toISOString(),
+        id: Date.now()
+    });
+    localStorage.setItem('historico', JSON.stringify(historico));
 }
 
 // Inicialização
