@@ -34,12 +34,6 @@ const categorias = [
         descricao: "Itens para Anime Fighters"
     },
     {
-        id: "freefaire",
-        nome: "free a",
-        cor: "#FF6B00",
-        emoji: "🎮"
-    },
-    {
         id: "tiktok",
         nome: "tiktok",
         cor: "#000000",
