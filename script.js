@@ -183,7 +183,7 @@ function toggleCarrinho() {
 }
 
 function contatarSuporte() {
-    const numeroWhatsApp = "55981827333";
+    const numeroWhatsApp = "24981827333";
     const mensagem = "Olá! Preciso de ajuda com um produto 😊";
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
@@ -195,7 +195,7 @@ function finalizarCompra() {
         return;
     }
 
-    const numeroWhatsApp = "55981827333";
+    const numeroWhatsApp = "24981827333";
     let mensagem = "🛒 *Novo Pedido*\n\n";
     
     // Adicionar itens do carrinho à mensagem
@@ -360,11 +360,9 @@ function registrarAcesso() {
         .then(response => response.json())
         .then(data => {
             console.log(`Total de acessos: ${data.acessos}`);
-            // Opcional: Mostrar o número de acessos em algum lugar da página
-            const acessosElement = document.createElement('div');
-            acessosElement.className = 'contador-acessos';
+            // Mostrar o número de acessos no canto inferior
+            const acessosElement = document.getElementById('contador-acessos');
             acessosElement.innerHTML = `👥 ${data.acessos} visitas`;
-            document.querySelector('header .container').appendChild(acessosElement);
         })
         .catch(error => console.error('Erro ao registrar acesso:', error));
 }
