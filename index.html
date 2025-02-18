@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Loja online com os melhores produtos">
+    <meta name="keywords" content="streaming, games, anime, produtos digitais">
+    <meta name="author" content="Seu Nome">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>store</h1>
+            <div class="header-actions">
+                <button class="suporte-btn" onclick="contatarSuporte()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                    </svg>
+                    Suporte
+                </button>
+                <div class="cart-icon" onclick="toggleCarrinho()">
+                    <span id="cart-count">0</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="categorias-wrapper">
+            <button class="categoria-nav categoria-nav-left" onclick="rolarCategorias('left')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <section class="categorias">
+                <button class="categoria-btn ativo" data-categoria="todos">ver tudo</button>
+                <button class="categoria-btn" data-categoria="streaming">streaming</button>
+                <button class="categoria-btn" data-categoria="freefire">free fire</button>
+                <button class="categoria-btn" data-categoria="animefighters">anime fighters</button>
+            </section>
+            <button class="categoria-nav categoria-nav-right" onclick="rolarCategorias('right')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="produtos-grid" id="produtos-container">
+            <!-- Produtos serão inseridos aqui via JavaScript -->
+        </div>
+    </main>
+
+    <div id="carrinho-modal" class="carrinho-modal">
+        <div class="carrinho-content">
+            <div class="carrinho-header">
+                <h2>Carrinho</h2>
+                <button onclick="toggleCarrinho()" class="btn-fechar">×</button>
+            </div>
+            <div id="carrinho-items"></div>
+            <div id="carrinho-total">Total: R$ 0,00</div>
+            <button onclick="finalizarCompra()" class="btn-finalizar">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div id="notificacao" class="notificacao"></div>
+
+    <script src="produtos.js"></script>
+    <script src="categorias.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
