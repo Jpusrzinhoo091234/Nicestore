@@ -183,7 +183,7 @@ function toggleCarrinho() {
 }
 
 function contatarSuporte() {
-    const numeroWhatsApp = "24981827333";
+    const numeroWhatsApp = "55981827333";
     const mensagem = "Olá! Preciso de ajuda com um produto 😊";
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
@@ -195,7 +195,7 @@ function finalizarCompra() {
         return;
     }
 
-    const numeroWhatsApp = "24981827333";
+    const numeroWhatsApp = "55981827333";
     let mensagem = "🛒 *Novo Pedido*\n\n";
     
     // Adicionar itens do carrinho à mensagem
