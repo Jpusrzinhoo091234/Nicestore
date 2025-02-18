@@ -354,9 +354,25 @@ function salvarPedido(pedido) {
     localStorage.setItem('historico', JSON.stringify(historico));
 }
 
+// Função para registrar acesso
+function registrarAcesso() {
+    fetch('contador.php')
+        .then(response => response.json())
+        .then(data => {
+            console.log(`Total de acessos: ${data.acessos}`);
+            // Opcional: Mostrar o número de acessos em algum lugar da página
+            const acessosElement = document.createElement('div');
+            acessosElement.className = 'contador-acessos';
+            acessosElement.innerHTML = `👥 ${data.acessos} visitas`;
+            document.querySelector('header .container').appendChild(acessosElement);
+        })
+        .catch(error => console.error('Erro ao registrar acesso:', error));
+}
+
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     renderizarCategorias();
     renderizarProdutos('todos');
     atualizarCarrinho();
+    registrarAcesso();
 }); 

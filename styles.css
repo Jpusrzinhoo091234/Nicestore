@@ -930,4 +930,16 @@ button {
     color: var(--text-light);
     font-size: 20px;
     cursor: pointer;
+}
+
+.contador-acessos {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--card-bg);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: var(--text-light);
+    border: 1px solid var(--border);
 } 
