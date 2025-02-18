@@ -400,14 +400,53 @@ h1 {
     bottom: 32px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--accent);
-    color: white;
     padding: 16px 32px;
-    border-radius: 16px;
-    display: none;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.notificacao-sucesso {
+    background: #10B981;
+    color: white;
+}
+
+.notificacao-erro {
+    background: #EF4444;
+    color: white;
+}
+
+/* Animação de entrada */
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, 20px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+.notificacao {
+    animation: slideUp 0.3s ease forwards;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+    .notificacao {
+        width: 90%;
+        padding: 12px 20px;
+        font-size: 14px;
+        bottom: 20px;
+    }
 }
 
 .header-actions {

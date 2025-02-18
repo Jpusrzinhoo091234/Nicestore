@@ -76,20 +76,32 @@ function filtrarProdutos(categoria) {
 }
 
 function adicionarAoCarrinho(id) {
-    const produto = produtos.find(p => p.id === id);
+    // Encontrar o produto em todas as categorias
+    let produto = null;
+    for (let categoria in produtos) {
+        produto = produtos[categoria].find(p => p.id === id);
+        if (produto) break;
+    }
+
+    if (!produto) {
+        mostrarNotificacao('Erro ao adicionar produto!', 'erro');
+        return;
+    }
+
     const itemNoCarrinho = carrinho.find(item => item.id === id);
 
     if (itemNoCarrinho) {
         itemNoCarrinho.quantidade++;
+        mostrarNotificacao(`+1 ${produto.nome} no carrinho! 🛒`, 'sucesso');
     } else {
         carrinho.push({
             ...produto,
             quantidade: 1
         });
+        mostrarNotificacao(`${produto.nome} adicionado ao carrinho! 🛒`, 'sucesso');
     }
 
     atualizarCarrinho();
-    mostrarNotificacao(`${produto.emoji} ${produto.nome} adicionado ao carrinho!`);
 }
 
 function atualizarCarrinho() {
@@ -208,18 +220,23 @@ function finalizarCompra() {
     mostrarNotificacao('Pedido enviado para o WhatsApp! 🎉');
 }
 
-function mostrarNotificacao(mensagem) {
+function mostrarNotificacao(mensagem, tipo = 'sucesso') {
     const notificacao = document.getElementById('notificacao');
     notificacao.textContent = mensagem;
-    notificacao.style.display = 'block';
+    notificacao.className = 'notificacao'; // Reset classes
+    notificacao.classList.add(`notificacao-${tipo}`);
     
+    // Mostrar notificação
+    notificacao.style.display = 'block';
+    notificacao.style.opacity = '1';
+    
+    // Esconder após 3 segundos
     setTimeout(() => {
         notificacao.style.opacity = '0';
         setTimeout(() => {
             notificacao.style.display = 'none';
-            notificacao.style.opacity = '1';
         }, 300);
-    }, 2000);
+    }, 3000);
 }
 
 function mostrarErro(mensagem) {
