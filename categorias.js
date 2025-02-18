@@ -40,6 +40,13 @@ const categorias = [
         emoji: "🎥",
         descricao: "Serviços para TikTok"
     },
+    {
+        id: "valorant",
+        nome: "valorant",
+        cor: "#A3A3A3",
+        emoji: "🎮",
+        descricao: "Contas de Valorant"
+    },
 ];
 
 function renderizarCategorias() {

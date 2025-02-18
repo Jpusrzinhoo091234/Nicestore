@@ -683,4 +683,88 @@ const produtos = {
             descricao: "✅ Curtidas em stories\n✅ Entrega rápida\n✅ Sem queda"
         }
     ],
+    
+    valorant: [
+        {
+            id: 401,
+            nome: "NIVEL 16 (COMP NÃO LIBERADO)",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(17.90),
+            destaque: "COMP NÃO LIBERADO",
+            estoque: 44,
+            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+        },
+        {
+            id: 402,
+            nome: "NIVEL 17 (COMP NÃO LIBERADO)",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(21.90),
+            destaque: "COMP NÃO LIBERADO",
+            estoque: 97,
+            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+        },
+        {
+            id: 403,
+            nome: "UNRANKED/Expirado (COMP LIBERADO)",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(29.90),
+            destaque: "COMP LIBERADO",
+            estoque: 13,
+            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+        },
+        {
+            id: 404,
+            nome: "UNRANKED (COMP LIBERADO E NUNCA JOGADO)",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(34.90),
+            destaque: "COMP LIBERADO",
+            estoque: 15,
+            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+        },
+        {
+            id: 405,
+            nome: "FERRO (1-3)",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(39.90),
+            destaque: "RANK",
+            estoque: 3,
+            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+        },
+        {
+            id: 406,
+            nome: "BRONZE (1-3)",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(38.90),
+            destaque: "RANK",
+            estoque: 11,
+            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+        },
+        {
+            id: 407,
+            nome: "PRATA (1-3)",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(39.90),
+            destaque: "RANK",
+            estoque: 22,
+            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+        },
+        {
+            id: 408,
+            nome: "PLATINA (1-3)",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(59.90),
+            destaque: "RANK",
+            estoque: 8,
+            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+        },
+        {
+            id: 409,
+            nome: "COMP LIBERADO (APENAS PARA CONSOLE)",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(19.90),
+            destaque: "COMP LIBERADO",
+            estoque: 28,
+            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+        },
+    ],
 }; 
