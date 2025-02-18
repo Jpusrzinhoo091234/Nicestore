@@ -117,6 +117,11 @@ async function adicionarAoCarrinho(id) {
         }
 
         atualizarCarrinho();
+
+        // Adicionar feedback tátil em dispositivos móveis
+        if (window.navigator && window.navigator.vibrate) {
+            window.navigator.vibrate(50);
+        }
     } finally {
         btn.disabled = false;
         btn.innerHTML = 'adicionar ao carrinho';
@@ -164,6 +169,9 @@ function atualizarCarrinho() {
 
     totalElement.textContent = `Total: R$ ${total.toFixed(2)}`;
     countElement.textContent = quantidadeTotal;
+
+    // Atualizar o botão flutuante
+    atualizarBotaoCarrinho();
 }
 
 function alterarQuantidade(id, novaQuantidade) {
@@ -452,13 +460,144 @@ estilos.textContent = `
             font-size: 13px;
         }
     }
+
+    /* Estilos do botão flutuante do carrinho */
+    .carrinho-flutuante {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 50px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+        z-index: 1000;
+        border: none;
+        transition: all 0.3s ease;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .carrinho-flutuante:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        background-color: #45a049;
+    }
+
+    .carrinho-flutuante:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .carrinho-flutuante .icone {
+        font-size: 20px;
+    }
+
+    .carrinho-flutuante .contador {
+        background-color: white;
+        color: #4CAF50;
+        padding: 2px 8px;
+        border-radius: 15px;
+        font-size: 14px;
+        font-weight: bold;
+        min-width: 24px;
+        text-align: center;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        .carrinho-flutuante {
+            right: 16px;
+            bottom: 16px;
+            padding: 14px;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            justify-content: center;
+        }
+
+        .carrinho-flutuante .icone {
+            font-size: 24px;
+        }
+
+        .carrinho-flutuante .contador {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            padding: 4px 8px;
+            font-size: 12px;
+            min-width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #4CAF50;
+        }
+
+        /* Ajuste para evitar sobreposição com o contador de visitas */
+        .contador-container {
+            bottom: 90px !important;
+        }
+    }
+
+    /* Animação de pulso quando adiciona item */
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    .carrinho-pulse {
+        animation: pulse 0.3s ease-in-out;
+    }
 `;
 document.head.appendChild(estilos);
+
+// Função para criar o botão flutuante do carrinho
+function criarBotaoCarrinhoFlutuante() {
+    const botaoExistente = document.getElementById('carrinho-flutuante');
+    if (botaoExistente) return;
+
+    const botao = document.createElement('button');
+    botao.id = 'carrinho-flutuante';
+    botao.className = 'carrinho-flutuante';
+    botao.onclick = toggleCarrinho;
+    atualizarBotaoCarrinho(botao);
+    document.body.appendChild(botao);
+}
+
+// Atualizar o conteúdo do botão do carrinho
+function atualizarBotaoCarrinho(botao = document.getElementById('carrinho-flutuante')) {
+    if (!botao) return;
+
+    const quantidadeTotal = carrinho.reduce((total, item) => total + item.quantidade, 0);
+    
+    // Em mobile, mostrar apenas o ícone e o contador
+    const isMobile = window.innerWidth <= 768;
+    botao.innerHTML = isMobile ? `
+        <span class="icone">🛒</span>
+        <span class="contador">${quantidadeTotal}</span>
+    ` : `
+        <span class="icone">🛒</span>
+        <span class="contador">${quantidadeTotal}</span>
+    `;
+
+    // Adicionar animação de pulso
+    botao.classList.add('carrinho-pulse');
+    setTimeout(() => {
+        botao.classList.remove('carrinho-pulse');
+    }, 300);
+}
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     renderizarCategorias();
     renderizarProdutos('todos');
+    criarBotaoCarrinhoFlutuante();
     atualizarCarrinho();
     registrarAcesso();
 }); 
