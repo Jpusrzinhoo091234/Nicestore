@@ -1,11 +1,24 @@
 :root {
-    --background: #0a0a0c;
-    --card-bg: #151519;
-    --text: #ffffff;
-    --text-light: #9999a3;
-    --accent: #4f46e5;
-    --border: #2a2a30;
-    --hover: #1f1f25;
+    /* Esquema de cores moderno e profissional */
+    --background: #0f172a;  /* Azul escuro profundo */
+    --card-bg: #1e293b;    /* Azul escuro mais claro */
+    --text: #f8fafc;       /* Branco suave */
+    --text-light: #94a3b8; /* Cinza azulado claro */
+    --accent: #3b82f6;     /* Azul vibrante */
+    --accent-hover: #2563eb; /* Azul mais escuro para hover */
+    --border: #334155;     /* Cinza azulado escuro */
+    --hover: #273449;      /* Azul escuro para hover */
+    
+    /* Cores de status */
+    --success: #10b981;    /* Verde */
+    --error: #ef4444;      /* Vermelho */
+    --warning: #f59e0b;    /* Amarelo */
+    
+    /* Cores de categorias */
+    --streaming: #e11d48;  /* Vermelho streaming */
+    --instagram: #db2777;  /* Rosa Instagram */
+    --tiktok: #171717;     /* Preto TikTok */
+    --gaming: #7c3aed;     /* Roxo gaming */
 }
 
 * {
@@ -263,7 +276,7 @@ h1 {
 .btn-adicionar:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
-    background: #4338ca;
+    background: var(--accent-hover);
 }
 
 .btn-adicionar:active {
@@ -381,7 +394,7 @@ h1 {
     justify-content: center;
     gap: 12px;
     padding: 20px;
-    background: #25D366; /* Cor do WhatsApp */
+    background: #25D366; /* Cor oficial do WhatsApp */
     color: white;
     border: none;
     border-radius: 12px;
@@ -397,8 +410,7 @@ h1 {
 }
 
 .btn-finalizar:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+    background: #1fa855;
 }
 
 /* Notificação */
@@ -421,13 +433,17 @@ h1 {
 }
 
 .notificacao-sucesso {
-    background: #10B981;
+    background: var(--success);
     color: white;
 }
 
 .notificacao-erro {
-    background: #EF4444;
+    background: var(--error);
     color: white;
+}
+
+.notificacao-info {
+    background: var(--accent);
 }
 
 /* Animação de entrada */
@@ -467,7 +483,7 @@ h1 {
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: #25D366; /* Cor do WhatsApp */
+    background: #25D366; /* Cor oficial do WhatsApp */
     color: white;
     border: none;
     border-radius: 12px;
@@ -478,8 +494,6 @@ h1 {
 }
 
 .suporte-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
     background: #1fa855;
 }
 
@@ -732,15 +746,20 @@ h1 {
 
 /* Cores específicas para cada categoria */
 [data-categoria="streaming"] {
-    --categoria-color: #e50914;
+    --categoria-color: var(--streaming);
 }
 
-[data-categoria="freefire"] {
-    --categoria-color: #ff6b00;
+[data-categoria="instagram"] {
+    --categoria-color: var(--instagram);
 }
 
+[data-categoria="tiktok"] {
+    --categoria-color: var(--tiktok);
+}
+
+[data-categoria="freefire"], 
 [data-categoria="animefighters"] {
-    --categoria-color: #7c4dff;
+    --categoria-color: var(--gaming);
 }
 
 .categoria-btn[data-categoria="streaming"].ativo {
@@ -932,15 +951,31 @@ button {
     cursor: pointer;
 }
 
-.contador-acessos {
-    position: fixed;
-    bottom: 16px; /* Distância do fundo */
-    left: 16px; /* Distância da esquerda */
+.search-container {
+    display: flex;
+    align-items: center;
     background: var(--card-bg);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    color: var(--text-light);
     border: 1px solid var(--border);
-    z-index: 1000; /* Para garantir que fique acima de outros elementos */
+    border-radius: 24px;
+    padding: 8px 16px;
+    margin-bottom: 24px;
+}
+
+.search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 16px;
+    outline: none; /* Remove o contorno padrão */
+}
+
+.search-input::placeholder {
+    color: var(--text-light); /* Cor do placeholder */
+}
+
+.search-icon {
+    color: var(--text-light);
+    font-size: 20px;
+    cursor: pointer;
 } 

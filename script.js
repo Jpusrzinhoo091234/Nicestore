@@ -1,7 +1,6 @@
 let carrinho = [];
 let categoriaAtual = 'todos';
 let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-let contadorGlobal = parseInt(localStorage.getItem('contadorGlobalVisitas')) || 0;
 
 function renderizarProdutos(categoria = 'todos', produtosParaMostrar = null) {
     const container = document.getElementById('produtos-container');
@@ -61,7 +60,9 @@ function renderizarProdutoCard(produto) {
         <button class="btn-favorito ${isFavorito ? 'ativo' : ''}" onclick="toggleFavorito(${produto.id})">
             ${isFavorito ? '❤️' : '🤍'}
         </button>
-        <div class="produto-emoji">${produto.emoji}</div>
+        <div class="produto-emoji">
+            ${produto.useIcon ? produto.emoji : `<span>${produto.emoji}</span>`}
+        </div>
         <div class="produto-nome">${produto.nome}</div>
         <div class="produto-estoque">${produto.estoque} em estoque</div>
         <div class="produto-descricao">${produto.descricao}</div>
@@ -363,58 +364,6 @@ function salvarPedido(pedido) {
     localStorage.setItem('historico', JSON.stringify(historico));
 }
 
-// Atualizar a função registrarAcesso para usar uma API serverless
-async function registrarAcesso() {
-    try {
-        // Verificar se já registrou visita hoje
-        const hoje = new Date().toDateString();
-        const ultimaVisita = localStorage.getItem('ultimaVisita');
-        
-        if (ultimaVisita !== hoje) {
-            // Incrementar contador global
-            contadorGlobal += 1;
-            
-            // Multiplicar por 1.0865 e arredondar para baixo
-            const visitasAjustadas = Math.floor(contadorGlobal * 1.0865);
-            
-            // Salvar no localStorage
-            localStorage.setItem('contadorGlobalVisitas', contadorGlobal);
-            localStorage.setItem('ultimaVisita', hoje);
-            
-            // Atualizar a exibição
-            atualizarContadorVisitas(visitasAjustadas);
-        } else {
-            // Se já visitou hoje, apenas mostrar o contador atual
-            const visitasAjustadas = Math.floor(contadorGlobal * 1.0865);
-            atualizarContadorVisitas(visitasAjustadas);
-        }
-    } catch (error) {
-        console.error('Erro ao registrar acesso:', error);
-    }
-}
-
-function atualizarContadorVisitas(numero) {
-    let contador = document.getElementById('contador-visitas');
-    if (!contador) {
-        contador = document.createElement('div');
-        contador.id = 'contador-visitas';
-        document.body.appendChild(contador);
-    }
-
-    // Formatar o número com separadores de milhar
-    const numeroFormatado = new Intl.NumberFormat('pt-BR', {
-        maximumFractionDigits: 0
-    }).format(numero);
-    
-    contador.innerHTML = `
-        <div class="contador-container">
-            <span class="icone-visitantes">👥</span>
-            <span class="numero-visitantes">${numeroFormatado}</span>
-            <span class="texto-visitantes">visitas totais</span>
-        </div>
-    `;
-}
-
 // Adicionar estilos CSS
 const estilos = document.createElement('style');
 estilos.textContent = `
@@ -610,5 +559,4 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarProdutos('todos');
     criarBotaoCarrinhoFlutuante();
     atualizarCarrinho();
-    registrarAcesso();
 }); 
