@@ -42,32 +42,44 @@ const categorias = [
     },
 ];
 
-function renderizarCategorias() {
-    const container = document.querySelector('.categorias');
-    container.innerHTML = categorias.map(categoria => `
-        <button class="categoria-btn ${categoria.id === 'todos' ? 'ativo' : ''}" 
-                data-categoria="${categoria.id}"
-                style="--categoria-color: ${categoria.cor}"
-                title="${categoria.descricao}">
-            ${categoria.emoji ? categoria.emoji + ' ' : ''}${categoria.nome}
-        </button>
-    `).join('');
+async function renderizarCategorias() {
+    try {
+        const container = document.querySelector('.categorias');
+        if (!container) {
+            throw new Error('Container de categorias não encontrado');
+        }
 
-    // Adicionar event listeners
-    document.querySelectorAll('.categoria-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            filtrarProdutos(btn.dataset.categoria);
+        // Limpar categorias existentes
+        container.innerHTML = '';
+
+        // Renderizar categorias
+        const categoriasHTML = categorias.map(categoria => `
+            <button class="categoria-btn ${categoria.id === 'todos' ? 'ativo' : ''}" 
+                    data-categoria="${categoria.id}"
+                    style="--categoria-color: ${categoria.cor}"
+                    title="${categoria.descricao}">
+                ${categoria.emoji ? categoria.emoji + ' ' : ''}${categoria.nome}
+            </button>
+        `).join('');
+
+        container.innerHTML = categoriasHTML;
+
+        // Adicionar event listeners
+        const botoes = container.querySelectorAll('.categoria-btn');
+        botoes.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                filtrarProdutos(btn.dataset.categoria);
+            });
         });
-    });
 
-    // Verificar overflow inicial
-    verificarOverflow();
+        // Verificar overflow inicial
+        verificarOverflow();
 
-    // Adicionar listener para redimensionamento
-    window.addEventListener('resize', verificarOverflow);
-
-    // Adicionar listener para scroll
-    container.addEventListener('scroll', verificarOverflow);
+    } catch (error) {
+        console.error('Erro ao renderizar categorias:', error);
+        throw error;
+    }
 }
 
 // Função para verificar se há overflow

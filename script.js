@@ -2,55 +2,76 @@ let carrinho = [];
 let categoriaAtual = 'todos';
 let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
-function renderizarProdutos(categoria = 'todos', produtosParaMostrar = null) {
-    const container = document.getElementById('produtos-container');
-    container.innerHTML = '';
-
-    // Se não foram passados produtos específicos, seleciona com base na categoria
-    if (produtosParaMostrar === null) {
-        if (categoria === 'todos') {
-            // Juntar todos os produtos de todas as categorias
-            produtosParaMostrar = Object.values(produtos).flat();
-        } else {
-            // Pegar produtos apenas da categoria selecionada
-            produtosParaMostrar = produtos[categoria] || [];
+async function renderizarProdutos(categoria = 'todos', produtosParaMostrar = null) {
+    try {
+        const container = document.getElementById('produtos-container');
+        if (!container) {
+            throw new Error('Container de produtos não encontrado');
         }
-    }
 
-    if (produtosParaMostrar.length === 0) {
-        container.innerHTML = `
-            <div class="sem-produtos">
-                <p>Nenhum produto encontrado nesta categoria</p>
-            </div>
-        `;
-        return;
-    }
+        // Mostrar loading no container
+        container.innerHTML = '<div class="loading-container"><div class="loading-spinner"></div></div>';
 
-    // Adicionar título da categoria
-    if (categoria !== 'todos') {
-        const categoriaInfo = categorias.find(cat => cat.id === categoria);
-        if (categoriaInfo) {
+        // Se não foram passados produtos específicos, seleciona com base na categoria
+        if (produtosParaMostrar === null) {
+            if (categoria === 'todos') {
+                produtosParaMostrar = Object.values(produtos).flat();
+            } else {
+                produtosParaMostrar = produtos[categoria] || [];
+            }
+        }
+
+        // Limpar container
+        container.innerHTML = '';
+
+        if (produtosParaMostrar.length === 0) {
             container.innerHTML = `
-                <div class="categoria-titulo">
-                    ${categoriaInfo.emoji} ${categoriaInfo.nome}
-                    <small>${categoriaInfo.descricao}</small>
+                <div class="sem-produtos">
+                    <p>Nenhum produto encontrado nesta categoria</p>
                 </div>
             `;
+            return;
         }
+
+        // Adicionar título da categoria
+        if (categoria !== 'todos') {
+            const categoriaInfo = categorias.find(cat => cat.id === categoria);
+            if (categoriaInfo) {
+                container.innerHTML = `
+                    <div class="categoria-titulo">
+                        ${categoriaInfo.emoji} ${categoriaInfo.nome}
+                        <small>${categoriaInfo.descricao}</small>
+                    </div>
+                `;
+            }
+        }
+
+        // Criar grid de produtos
+        const produtosGrid = document.createElement('div');
+        produtosGrid.className = 'produtos-grid';
+
+        // Renderizar produtos em lotes para melhor performance
+        const BATCH_SIZE = 10;
+        for (let i = 0; i < produtosParaMostrar.length; i += BATCH_SIZE) {
+            const batch = produtosParaMostrar.slice(i, i + BATCH_SIZE);
+            
+            batch.forEach(produto => {
+                const card = document.createElement('div');
+                card.className = 'produto-card';
+                card.innerHTML = renderizarProdutoCard(produto);
+                produtosGrid.appendChild(card);
+            });
+
+            // Permitir que o navegador respire entre os lotes
+            await new Promise(resolve => setTimeout(resolve, 0));
+        }
+
+        container.appendChild(produtosGrid);
+
+    } catch (error) {
+        console.error('Erro ao renderizar produtos:', error);
+        mostrarErro('Erro ao carregar produtos. Por favor, tente novamente.');
     }
-
-    // Criar grid de produtos
-    const produtosGrid = document.createElement('div');
-    produtosGrid.className = 'produtos-grid';
-
-    produtosParaMostrar.forEach(produto => {
-        const card = document.createElement('div');
-        card.className = 'produto-card';
-        card.innerHTML = renderizarProdutoCard(produto);
-        produtosGrid.appendChild(card);
-    });
-
-    container.appendChild(produtosGrid);
 }
 
 function renderizarProdutoCard(produto) {
@@ -367,10 +388,54 @@ function registrarAcesso() {
         .catch(error => console.error('Erro ao registrar acesso:', error));
 }
 
-// Inicialização
-document.addEventListener('DOMContentLoaded', () => {
-    renderizarCategorias();
-    renderizarProdutos('todos');
-    atualizarCarrinho();
-    registrarAcesso();
+// Melhorar a função de inicialização
+async function inicializarSite() {
+    try {
+        // Mostrar loading
+        mostrarLoading();
+        
+        // Garantir que produtos.js foi carregado
+        if (typeof produtos === 'undefined') {
+            throw new Error('Erro ao carregar produtos');
+        }
+
+        // Inicializar componentes
+        await Promise.all([
+            renderizarCategorias(),
+            renderizarProdutos('todos'),
+            carregarCarrinho(),
+            registrarAcesso()
+        ]);
+
+    } catch (error) {
+        console.error('Erro na inicialização:', error);
+        mostrarErro('Erro ao carregar a página. Por favor, recarregue.');
+    } finally {
+        // Esconder loading
+        esconderLoading();
+    }
+}
+
+// Adicionar funções de loading
+function mostrarLoading() {
+    const loading = document.createElement('div');
+    loading.className = 'loading';
+    loading.innerHTML = '<div class="loading-spinner"></div>';
+    document.body.appendChild(loading);
+}
+
+function esconderLoading() {
+    const loading = document.querySelector('.loading');
+    if (loading) {
+        loading.remove();
+    }
+}
+
+// Melhorar o event listener de inicialização
+document.addEventListener('DOMContentLoaded', inicializarSite);
+
+// Adicionar handler para erros de carregamento
+window.addEventListener('error', (event) => {
+    console.error('Erro de carregamento:', event.error);
+    mostrarErro('Erro ao carregar recursos. Por favor, recarregue a página.');
 }); 

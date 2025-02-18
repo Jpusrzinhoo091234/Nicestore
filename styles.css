@@ -758,6 +758,14 @@ h1 {
     border-color: var(--categoria-color, var(--accent));
 }
 
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    width: 100%;
+}
+
 .loading {
     position: fixed;
     top: 0;
