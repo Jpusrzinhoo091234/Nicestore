@@ -771,44 +771,44 @@ const produtos = {
     xbox: [
         {
             id: 501,
-            nome: "XBOX ULTIMATE 1 MÊS XCLOUD TV PC",
+            nome: "XBOX GAME PASS ULTIMATE - 1 MÊS",
             emoji: "🎮",
-            preco: calcularPrecoComAumento(34.99),
-            destaque: "CÓDIGO/KEY",
-            estoque: 19,
-            descricao: "✅ Game Pass Ultimate 1 mês\n✅ Funciona em Xbox, PC e Cloud Gaming\n✅ Entrega imediata do código\n✅ Ativação garantida"
+            preco: calcularPrecoComAumento(3.90),
+            destaque: "MAIS VENDIDO",
+            estoque: 58,
+            descricao: "✅ Game Pass Ultimate 1 mês\n✅ Funciona em Xbox, PC e Cloud Gaming\n✅ Entrega imediata\n✅ Ativação garantida"
         },
         {
             id: 502,
-            nome: "PC GAME PASS 1 MÊS",
-            emoji: "🍉",
-            preco: calcularPrecoComAumento(19.80),
-            destaque: "CÓDIGO/KEY",
-            estoque: 27,
-            descricao: "✅ Game Pass para PC 1 mês\n✅ Código oficial Microsoft\n✅ Entrega automática\n✅ Ativação garantida"
+            nome: "GAME PASS ULTIMATE + EA PLAY",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(6.90),
+            destaque: "PREMIUM",
+            estoque: 68,
+            descricao: "🟢 Xbox Game Pass Ultimate\n🟢 Conta 30 Dias\n🟢 Conta compartilhada\n🟢 Login + Senha inclusos\n🟢 Acesso ao EA PLAY\n🟢 Acesso ao xCloud\n🟢 Disponível em todos dispositivos\n😊 A revenda do produto não é permitida"
         },
         {
             id: 503,
-            nome: "PC GAME PASS 14 DIAS",
-            emoji: "🎯",
-            preco: calcularPrecoComAumento(6.99),
-            destaque: "CÓDIGO/KEY",
-            estoque: 50,
-            descricao: "✅ Game Pass para PC 14 dias\n✅ Código oficial Microsoft\n✅ Entrega automática\n✅ Ideal para testar o serviço"
+            nome: "GAME PASS ULTIMATE - 4 PESSOAS",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(14.90),
+            destaque: "COMPARTILHADO",
+            estoque: 4,
+            descricao: "🟢 Xbox Game Pass Ultimate 1 Mês\n🟢 Conta 30 Dias\n🟢 Conta compartilhada com 4 pessoas\n🟢 Compartilhável com sua conta principal\n🟢 Login + Senha inclusos\n🟢 Acesso ao EA PLAY\n�� Acesso ao xCloud\n🟢 Disponível em todos dispositivos"
         },
         {
             id: 504,
-            nome: "ATIVAÇÃO [CONTA XBOX COM CARTÃO PARA ATIVAÇÃO]",
-            emoji: "💳",
-            preco: calcularPrecoComAumento(3.99),
-            destaque: "ATIVAÇÃO",
-            estoque: 9,
-            descricao: "✅ Conta Xbox com cartão registrado\n✅ Ideal para ativação de códigos\n✅ Suporte completo\n✅ Tutorial incluso"
+            nome: "GAME PASS ULTIMATE - 2 PESSOAS",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(39.90),
+            destaque: "PRIVADO",
+            estoque: 2,
+            descricao: "🟢 Xbox Game Pass Ultimate\n🟢 Conta 30 Dias\n🟢 Conta compartilhada com 2 pessoas\n🟢 Compre 2 Unidades para conta privada\n🟢 Compartilhável com conta principal\n🟢 Disponível em todos dispositivos\n🟢 Acesso ao EA PLAY\n�� Acesso ao xCloud"
         },
         {
             id: 505,
-            nome: "ATIVAÇÃO DE CÓDIGO [COMPRE SE NÃO CONSEGUIU ATIVAR]",
-            emoji: "🌞",
+            nome: "ATIVAÇÃO DE CÓDIGO [SUPORTE]",
+            emoji: "🌟",
             preco: calcularPrecoComAumento(12.99),
             destaque: "SUPORTE",
             estoque: 6,
