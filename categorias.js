@@ -47,6 +47,13 @@ const categorias = [
         emoji: "🎮",
         descricao: "Contas de Valorant"
     },
+    {
+        id: "xbox",
+        nome: "xbox",
+        cor: "#107C10",
+        emoji: "🎮",
+        descricao: "Produtos e serviços Xbox"
+    },
 ];
 
 function renderizarCategorias() {

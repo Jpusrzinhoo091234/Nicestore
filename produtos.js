@@ -767,4 +767,52 @@ const produtos = {
             descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
         },
     ],
+    
+    xbox: [
+        {
+            id: 501,
+            nome: "XBOX ULTIMATE 1 MÊS XCLOUD TV PC",
+            emoji: "🎮",
+            preco: calcularPrecoComAumento(34.99),
+            destaque: "CÓDIGO/KEY",
+            estoque: 19,
+            descricao: "✅ Game Pass Ultimate 1 mês\n✅ Funciona em Xbox, PC e Cloud Gaming\n✅ Entrega imediata do código\n✅ Ativação garantida"
+        },
+        {
+            id: 502,
+            nome: "PC GAME PASS 1 MÊS",
+            emoji: "🍉",
+            preco: calcularPrecoComAumento(19.80),
+            destaque: "CÓDIGO/KEY",
+            estoque: 27,
+            descricao: "✅ Game Pass para PC 1 mês\n✅ Código oficial Microsoft\n✅ Entrega automática\n✅ Ativação garantida"
+        },
+        {
+            id: 503,
+            nome: "PC GAME PASS 14 DIAS",
+            emoji: "🎯",
+            preco: calcularPrecoComAumento(6.99),
+            destaque: "CÓDIGO/KEY",
+            estoque: 50,
+            descricao: "✅ Game Pass para PC 14 dias\n✅ Código oficial Microsoft\n✅ Entrega automática\n✅ Ideal para testar o serviço"
+        },
+        {
+            id: 504,
+            nome: "ATIVAÇÃO [CONTA XBOX COM CARTÃO PARA ATIVAÇÃO]",
+            emoji: "💳",
+            preco: calcularPrecoComAumento(3.99),
+            destaque: "ATIVAÇÃO",
+            estoque: 9,
+            descricao: "✅ Conta Xbox com cartão registrado\n✅ Ideal para ativação de códigos\n✅ Suporte completo\n✅ Tutorial incluso"
+        },
+        {
+            id: 505,
+            nome: "ATIVAÇÃO DE CÓDIGO [COMPRE SE NÃO CONSEGUIU ATIVAR]",
+            emoji: "🌞",
+            preco: calcularPrecoComAumento(12.99),
+            destaque: "SUPORTE",
+            estoque: 6,
+            descricao: "✅ Serviço de ativação de códigos\n✅ Suporte especializado\n✅ Resolução de problemas\n✅ Garantia de funcionamento"
+        }
+    ],
 }; 
