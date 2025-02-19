@@ -771,66 +771,57 @@ const produtos = {
     xbox: [
         {
             id: 501,
-            nome: "XBOX GAME PASS ULTIMATE - 1 MÊS",
-            emoji: "🎮",
+            nome: "GAME PASS ULTIMATE COMPARTILHADO [PC]",
+            emoji: "📧",
             preco: calcularPrecoComAumento(3.90),
-            destaque: "MAIS VENDIDO",
+            destaque: "PC ONLY",
             estoque: 58,
-            descricao: "🟢 Xbox Game Pass Ultimate 1 Mês\n🟢 Conta compartilhada de alta qualidade\n🟢 Acesso ao EA PLAY (Limitado)\n🟢 Acesso ao xCloud\n🟢 Disponível em todos dispositivos\n\n🎮 Jogos Inclusos:\n- Forza Horizon 5\n- Minecraft Java e Bedrock\n- Resident Evil 3\n- E muito mais!\n\n⚠️ IMPORTANTE:\n- Conta compartilhada entre usuários\n- Garantia de 30 dias\n- Suporte disponível\n\n😊 A revenda do produto não é permitida"
+            descricao: "⚡ GAME PASS ULTIMATE 30 DIAS COMPARTILHADA [COMPUTADOR]\n\n❌ IMPORTANTE:\n- Funciona APENAS no PC/COMPUTADOR\n- NÃO funciona em XCLOUD ou CONSOLES\n- Use o aplicativo Xbox para PC\n\n✅ INCLUI:\n- Garantia de 1 mês (pode durar mais)\n- Compartilhável com conta principal\n- Centenas de jogos para PC\n- EA Play (jogos selecionados)\n\n⚠️ OBSERVAÇÕES:\n- Conta compartilhada com outros usuários\n- Linux não é compatível 🚫\n- Jogos Ubisoft/Minecraft/RIOT/Blizzard: apenas no acesso compartilhado"
         },
         {
             id: 502,
-            nome: "GAME PASS ULTIMATE + EA PLAY",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(6.90),
-            destaque: "PREMIUM",
-            estoque: 68,
-            descricao: "🟢 Xbox Game Pass Ultimate 30 Dias\n🟢 Acesso completo ao EA PLAY\n🟢 Acesso ao xCloud\n🟢 Login + Senha inclusos\n🟢 Compartilhável com sua conta principal\n\n🎮 Acesso a jogos como:\n- Forza Horizon 5 e 4\n- Minecraft\n- Fallout 4\n- Among Us\n\n⚠️ IMPORTANTE:\n- Garantia de 1 mês\n- Suporte 24/7\n- Conta compartilhada\n\n😊 Vendedor 100% verificado"
+            nome: "XBOX ULTIMATE 1 MÊS [CÓDIGO/KEY]",
+            emoji: "⏬",
+            preco: calcularPrecoComAumento(34.99),
+            destaque: "CÓDIGO OFICIAL",
+            estoque: 19,
+            descricao: "🔑 CÓDIGO OFICIAL 25 DÍGITOS\n\n✅ FUNCIONALIDADES:\n- Funciona em TODOS os dispositivos\n- XBOX, PC, CELULAR e TV\n- xCloud Gaming incluso\n- Benefícios Ultimate completos\n\n⚠️ REQUISITOS:\n- APENAS para contas que NUNCA tiveram Game Pass\n- Necessário método de pagamento válido\n- Não precisa ter saldo no cartão\n\n📦 ENTREGA:\n- Código enviado automaticamente\n- Ative imediatamente após a compra\n- Tutorial de ativação incluso"
         },
         {
             id: 503,
-            nome: "GAME PASS ULTIMATE - 4 PESSOAS",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(14.90),
-            destaque: "COMPARTILHADO",
-            estoque: 4,
-            descricao: "🟢 Game Pass Ultimate 1 Mês\n🟢 Compartilhado entre 4 pessoas\n🟢 Acesso ao EA PLAY\n🟢 Acesso ao xCloud\n🟢 Todos os dispositivos\n\n⚠️ INFORMAÇÕES IMPORTANTES:\n- Login + Senha fornecidos\n- Garantia de 30 dias\n- Compatível com PC/Xbox/Mobile\n- Suporte disponível manhã e noite\n\n❌ Não abra mediação sem contatar o suporte"
+            nome: "PC GAME PASS 1 MÊS [CÓDIGO/KEY]",
+            emoji: "🍉",
+            preco: calcularPrecoComAumento(19.80),
+            destaque: "PC GLOBAL",
+            estoque: 27,
+            descricao: "💻 EXCLUSIVO PARA PC\n\n✅ INCLUI:\n- 30 dias de Game Pass PC\n- Código 25 dígitos GLOBAL\n- EA Play sem custo extra\n- Benefícios Riot Games\n- Não precisa de VPN\n\n⚠️ IMPORTANTE:\n- Válido só para NOVAS contas\n- Requer método de pagamento\n- Não precisa ter saldo\n\n🎮 ATIVE IMEDIATAMENTE:\n- Entrega automática\n- Suporte disponível"
         },
         {
             id: 504,
-            nome: "GAME PASS ULTIMATE - 2 PESSOAS",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(39.90),
-            destaque: "PRIVADO",
-            estoque: 2,
-            descricao: "🟢 Game Pass Ultimate 30 Dias\n🟢 Compartilhado entre 2 pessoas\n🟢 Acesso ao EA PLAY\n🟢 Acesso ao xCloud\n🟢 Todos os dispositivos\n\n💡 DICA:\n- Compre 2 unidades para conta privada\n\n⚠️ IMPORTANTE:\n- Garantia de 30 dias\n- Suporte prioritário\n- Login + Senha inclusos"
+            nome: "PC GAME PASS 14 DIAS [CÓDIGO/KEY]",
+            emoji: "🎯",
+            preco: calcularPrecoComAumento(6.99),
+            destaque: "TESTE",
+            estoque: 50,
+            descricao: "🎮 GAME PASS PC 14 DIAS\n\n✅ DETALHES:\n- Código 25 dígitos GLOBAL\n- Não precisa de VPN\n- EA Play incluso\n- Benefícios Riot Games\n\n⚠️ REQUISITOS:\n- Apenas para NOVAS contas\n- Método de pagamento válido\n- Exclusivo para PC\n\n📦 ENTREGA:\n- Automática e imediata\n- Suporte disponível"
         },
         {
             id: 505,
-            nome: "XBOX GAME PASS ULTIMATE [KEY/CÓDIGO]",
-            emoji: "🔑",
-            preco: calcularPrecoComAumento(34.99),
-            destaque: "PRIMEIRA VEZ",
-            estoque: 19,
-            descricao: "✅ Código oficial Microsoft 25 dígitos\n✅ Funciona em todos dispositivos\n✅ 1 mês de Ultimate completo\n\n⚠️ ATENÇÃO:\n- APENAS para contas que NUNCA tiveram Game Pass\n- Necessário método de pagamento válido\n- Não precisa ter saldo\n\n📝 INCLUI:\n- Tutorial em vídeo\n- Suporte completo\n- Ativação imediata"
+            nome: "CONTA XBOX COM CARTÃO [ATIVAÇÃO]",
+            emoji: "💳",
+            preco: calcularPrecoComAumento(3.99),
+            destaque: "ATIVAÇÃO",
+            estoque: 9,
+            descricao: "💳 CONTA PRONTA PARA ATIVAÇÃO\n\n✅ INCLUI:\n- Conta com cartão vinculado\n- Nunca usou Game Pass\n- Full acesso (pode alterar dados)\n\n⚠️ IMPORTANTE:\n- APENAS para ativar códigos\n- NÃO tem Game Pass incluso\n- NÃO serve para comprar\n\n📦 EXTRAS:\n- Entrega automática\n- Tutorial incluso"
         },
         {
             id: 506,
-            nome: "PC GAME PASS [KEY/CÓDIGO]",
-            emoji: "💻",
-            preco: calcularPrecoComAumento(19.80),
-            destaque: "PC ONLY",
-            estoque: 27,
-            descricao: "✅ Código 25 dígitos para PC\n✅ 30 dias de Game Pass PC\n✅ EA Play incluso\n\n⚠️ IMPORTANTE:\n- Exclusivo para PC\n- Apenas novas contas\n- Não precisa de VPN\n- Necessário método de pagamento\n\n🎮 BENEFÍCIOS:\n- Jogos da EA Play\n- Benefícios Riot Games\n- Ativação imediata"
-        },
-        {
-            id: 507,
             nome: "ATIVAÇÃO DE CÓDIGO [SUPORTE]",
-            emoji: "🌟",
+            emoji: "🌞",
             preco: calcularPrecoComAumento(12.99),
             destaque: "SUPORTE",
             estoque: 6,
-            descricao: "✅ Serviço de ativação para qualquer código\n✅ Suporte especializado\n✅ Resolução de problemas\n\n⚠️ OBSERVAÇÃO:\n- Você deve ter o código para ativar\n- Atendimento prioritário\n- Garantia de funcionamento\n\n💡 Ideal para quem:\n- Não conseguiu ativar sozinho\n- Precisa de ajuda na ativação"
+            descricao: "🔧 SERVIÇO DE ATIVAÇÃO\n\n✅ OFERECEMOS:\n- Ativação de qualquer código\n- Suporte especializado\n- Garantia de funcionamento\n\n⚠️ IMPORTANTE:\n- Você deve ter o código\n- Atendimento prioritário\n\n💡 IDEAL PARA:\n- Problemas na ativação\n- Dúvidas no processo"
         }
     ],
 }; 
