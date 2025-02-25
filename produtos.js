@@ -1,5 +1,5 @@
-const AUMENTO_GLOBAL = 2.50; // Valor do aumento em reais
-const AUMENTO_PORCENTAGEM = 0; // Aumento em porcentagem (0 = sem aumento percentual)
+const AUMENTO_GLOBAL = 2.60; // Valor do aumento em reais
+const AUMENTO_PORCENTAGEM = 20; // Aumento em porcentagem (0 = sem aumento percentual)
 
 // Função auxiliar para calcular preço com aumento
 function calcularPrecoComAumento(precoBase) {
@@ -20,808 +20,284 @@ const ICONS = {
 };
 
 const produtos = {
-    streaming: [
+    Netflix: [
         {
-            id: 1,
-            nome: "YOUTUBE PREMIUM + MUSIC + BRINDE | 30 DIAS",
-            emoji: "▶️",
-            preco: calcularPrecoComAumento(2.00),
-            destaque: "AUTOMÁTICO",
-            estoque: 100,
-            descricao: "✅ Entrega automática\n✅ YouTube Premium\n✅ YouTube Music\n✅ Brinde exclusivo\n✅ Duração: 30 dias"
+            "id": 1,
+            "nome": "NETFLIX 4K 30 DIAS | 1 TELA COM PIN (SOMENTE PARA TV)",
+            "emoji": "📺",
+            "preco": calcularPrecoComAumento(16.90),
+            "estoque": 146399,
+            "descricao": "Plano Premium 4K Ultra HD\n🔹 Suporte de 30 dias\n🔹 Envio rápido\n🔹 Conta privada\n🔹 Exclusivo para TV"
         },
         {
-            id: 1,
-            nome: "CAPCUT PRO - 1 VAGA (30 DIAS)",
-            emoji: "✨",
-            preco: calcularPrecoComAumento(10.90),
-            destaque: "EXCLUSIVO",
-            estoque: 6,
-            descricao: "✅ Conta limitada a 5 pessoas no máximo\n🚫 Proibido compartilhar!\n➡️ Compatível com Android, iOS e PC"
+            "id": 2,
+            "nome": "NETFLIX 4K 30 DIAS | 1 TELA COM PIN",
+            "emoji": "📺",
+            "preco": calcularPrecoComAumento(15.90),
+            "estoque": 13568,
+            "descricao": "Plano Premium 4K Ultra HD\n🔹 Suporte de 30 dias\n🔹 Envio rápido\n🔹 Conta privada\n🔹 Funciona em todos os dispositivos"
         },
         {
-            id: 2,
-            nome: "NETFLIX (TELA) + CANVA PRO 30 DIAS",
-            emoji: "🎬",
-            preco: calcularPrecoComAumento(9.00),
-            destaque: "COMBO",
-            estoque: 14,
-            descricao: "✅ Compartilhado com outras pessoas\n✅ Garantia de 7 dias\n✅ Séries originais, filmes e mais"
+            "id": 3,
+            "nome": "NETFLIX 4K 10 DIAS COMPARTILHADA",
+            "emoji": "📺",
+            "preco": calcularPrecoComAumento(5.89),
+            "estoque": 5038,
+            "descricao": "Plano Premium 4K Ultra HD\n🔹 Suporte de 10 dias\n🔹 Envio rápido\n🔹 Conta compartilhada\n🔹 Funciona em todos os dispositivos\n🔹 Pode dar telas simultâneas"
         },
         {
-            id: 3,
-            nome: "DISNEY PLUS (STAR+ESPN) + CANVA PRO",
-            emoji: "✨",
-            preco: calcularPrecoComAumento(6.99),
-            destaque: "POPULAR",
-            estoque: 10,
-            descricao: "✅ Compartilhado com outras pessoas\n✅ Melhor Plano 4K FHD\n✅ Garantia de 30 dias"
-        },
-        {
-            id: 4,
-            nome: "HBO MAX (TELA) + CANVA PRO 30 DIAS",
-            emoji: "🎯",
-            preco: calcularPrecoComAumento(3.99),
-            destaque: "OFERTA",
-            estoque: 11,
-            descricao: "✅ Compartilhado com outras pessoas\n✅ Garantia de 25 dias\n✅ Chance de durar mais de 1 mês"
-        },
-        {
-            id: 5,
-            nome: "PRIME VÍDEO (TELA) + CANVA PRO",
-            emoji: "📺",
-            preco: calcularPrecoComAumento(2.00),
-            destaque: "PROMOÇÃO",
-            estoque: 11,
-            descricao: "✅ Compartilhado com outras pessoas\n✅ Garantia de 15 dias\n✅ Filmes, séries e originais Amazon"
-        },
-        {
-            id: 6,
-            nome: "PARAMOUNT+ (TELA) + CANVA PRO",
-            emoji: "🎥",
-            preco: calcularPrecoComAumento(2.50),
-            destaque: "LIMITADO",
-            estoque: 6,
-            descricao: "✅ Compartilhado com outras pessoas\n✅ Garantia de 25 dias\n✅ Catálogo exclusivo da Paramount"
-        },
-        {
-            id: 7,
-            nome: "YT PREMIUM + MUSIC + CANVA PRO",
-            emoji: "▶️",
-            preco: calcularPrecoComAumento(3.99),
-            destaque: "PREMIUM",
-            estoque: 15,
-            descricao: "✅ Acesso ilimitado e sem anúncios\n✅ Garantia de 30 dias\n✅ Inclui YouTube Music"
-        },
-        {
-            id: 8,
-            nome: "CRUNCHYROLL (TELA) + CANVA PRO",
-            emoji: "🍥",
-            preco: calcularPrecoComAumento(2.00),
-            destaque: "ANIME",
-            estoque: 12,
-            descricao: "✅ Compartilhado com outras pessoas\n✅ Garantia de 15 dias\n✅ Animes simulcast direto do Japão"
-        },
-        {
-            id: 9,
-            nome: "1x TELA PRIVADA STREAMING + CANVA PRO",
-            emoji: "🎯",
-            preco: calcularPrecoComAumento(7.99),
-            destaque: "PRIVADO",
-            estoque: 4,
-            descricao: "✅ Perfil só seu\n✅ Garantia de 30 dias\n✅ Escolha uma opção (HBO Max, Disney+, Prime Video, Paramount+, Crunchyroll)"
-        },
-        {
-            id: 10,
-            nome: "PARAMOUNT (NO SEU EMAIL) + CANVA PRO",
-            emoji: "📧",
-            preco: calcularPrecoComAumento(10.50),
-            destaque: "EMAIL",
-            estoque: 2,
-            descricao: "✅ Ativo no seu email!\n✅ 6 telas disponíveis\n✅ Garantia de 25 dias"
-        },
-        {
-            id: 11,
-            nome: "YOUTUBE PREMIUM (NO SEU E-MAIL)",
-            emoji: "▶️",
-            preco: calcularPrecoComAumento(11.90),
-            destaque: "PREMIUM",
-            estoque: 5,
-            descricao: "✅ Você cria a conta e nos envia!\n✅ 6 vagas disponíveis\n✅ Garantia de 30 dias"
-        },
-        {
-            id: 12,
-            nome: "PRIME VIDEO (NO SEU EMAIL) + CANVA PRO",
-            emoji: "📧",
-            preco: calcularPrecoComAumento(11.99),
-            destaque: "ÚLTIMO",
-            estoque: 1,
-            descricao: "✅ Ativo no seu email!(conta nova)\n✅ 6 telas disponíveis\n✅ Garantia de 25 dias"
-        },
-        {
-            id: 317,
-            nome: "YouTube Premium - Plano Família",
-            emoji: "▶️",
-            preco: calcularPrecoComAumento(7.00),
-            destaque: "FAMÍLIA",
-            estoque: 1,
-            descricao: "✔️ Ouça música e vídeos sem propaganda\n✔️ Downloads ilimitados\n✔️ Assistir/Ouvir em segundo plano\n✅ Conta somente sua!\n💰 Dentre 1 a 24 horas você receberá seu acesso\n🟢 CHEQUE SE O VENDEDOR ESTÁ ONLINE.\nSe tiver entrega automática, conta fresquinha criada recente."
-        },
-        {
-            id: 320,
-            nome: "NETFLIX 4K 10 DIAS COMPARTILHADA",
-            emoji: ICONS.netflix,
-            useIcon: true,
-            preco: calcularPrecoComAumento(5.89),
-            destaque: "COMPARTILHADA",
-            estoque: 5195,
-            descricao: "📌 plano premium 4k ultra hd\n✅️ suporte 10 dias\n✅️ envio mais rápido da ggmax\n✅ duração de 10 dias\n✅ esse item poderá dar telas simultaneas\n✅ conta compartilhada\n✅ funciona em todos os dispositivos"
-        },
-        {
-            id: 321,
-            nome: "[SOMENTE PARA TV] NETFLIX 4K 7 DIAS COMPARTILHADA",
-            emoji: ICONS.netflix,
-            useIcon: true,
-            preco: calcularPrecoComAumento(2.99),
-            destaque: "ECONÔMICO",
-            estoque: 581173,
-            descricao: "📌 plano premium 4k ultra hd\n✅️ suporte 7 dias\n✅️ envio mais rápido da ggmax\n✅ duração de 7 dias\n✅ esse item poderá dar telas simultaneas\n✅ conta compartilhada\n✅ todas as contas são revisadas diariamente\n\n⚠️ POR FAVOR PARA MELHOR EXPERIÊNCIA NÃO:\n❌ revenda nem compartilhe a senha\n❌ mude os perfis\n❌ troque a senha"
-        },
-        {
-            id: 322,
-            nome: "NETFLIX 4K - TELA PRIVADA COM PIN (ENTREGA IMEDIATA)",
-            emoji: "🎬",
-            preco: calcularPrecoComAumento(8.50),
-            destaque: "IMEDIATO",
-            estoque: 784,
-            descricao: "✅ Plano Premium 4K Ultra HD\n✅ Tela Privada com PIN\n✅ Entrega Imediata\n✅ Conta Privada\n✅ Funciona em todos os dispositivos"
-        },
-        {
-            id: 323,
-            nome: "NETFLIX 4K - TELA PRIVADA (ENTREGA IMEDIATA)",
-            emoji: "🎬",
-            preco: calcularPrecoComAumento(5.00),
-            destaque: "ECONÔMICO",
-            estoque: 2,
-            descricao: "✅ Plano Premium 4K Ultra HD\n✅ Tela Privada\n✅ Entrega Imediata\n✅ Conta Privada\n✅ Funciona em todos os dispositivos"
+            "id": 4,
+            "nome": "NETFLIX 4K 7 DIAS COMPARTILHADA (SOMENTE PARA TV)",
+            "emoji": "📺",
+            "preco": calcularPrecoComAumento(2.99),
+            "estoque": 112,
+            "descricao": "Plano Premium 4K Ultra HD\n🔹 Suporte de 7 dias\n🔹 Envio rápido\n🔹 Conta compartilhada\n🔹 Exclusivo para TV\n🔹 Pode dar telas simultâneas"
         }
     ],
     
-    freefire: [
+    Paramount: [
         {
-            id: 401,
-            nome: "[PROMOÇÃO] PASSE BOOYAH PREMIUM FREE FIRE",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(5.87),
-            destaque: "PROMOÇÃO",
-            estoque: 100,
-            descricao: "✅ Passe Premium\n✅ Entrega mais rápida\n✅ Ativação imediata"
+            "id": 5,
+            "nome": "Paramount Plus - TELA PRIVADA (30 dias de uso)",
+            "emoji": "📺",
+            "preco": calcularPrecoComAumento(2.99),
+            "estoque": 12,
+            "descricao": "Acesso a uma tela individual. Pode colocar o seu nome na tela."
         },
         {
-            id: 402,
-            nome: "NÍVEL 15 + 50 DIMAS + 24K OURO + TROCA NICK",
-            emoji: "⭐",
-            preco: calcularPrecoComAumento(3.99),
-            destaque: "BÁSICO",
-            estoque: 964,
-            descricao: "⭐ Personagens: Andrew, Alok, Luna, Moco, Hayato, Antonio, Maxim e Kelly\n💰 24.000 de ouro\n✅ Troca nick grátis"
+            "id": 6,
+            "nome": "Paramount Plus - ATIVAÇÃO NO SEU EMAIL - CONTA COMPLETA (30 dias de uso)",
+            "emoji": "📧",
+            "preco": calcularPrecoComAumento(7.99),
+            "estoque": 9,
+            "descricao": "Acesso completo a conta Paramount Plus. Todos os perfis são seus."
+        }
+    ],
+
+    DisneyPlus: [
+        {
+            "id": 7,
+            "nome": "Disney + Star Plus (Compartilhada) + Brinde [1 Mês]",
+            "emoji": "🎬",
+            "preco": calcularPrecoComAumento(3.99),
+            "estoque": 33,
+            "descricao": "Acesso a conta compartilhada com perfil público. Inclui brinde de 1 mês."
         },
         {
-            id: 403,
-            nome: "NÍVEL 15 + 300 DIMAS + 24K OURO + TROCA NICK",
-            emoji: "⭐",
-            preco: calcularPrecoComAumento(11.99),
-            destaque: "PREMIUM",
-            estoque: 985,
-            descricao: "⭐ Personagens: Andrew, Alok, Luna, Moco, Hayato, Antonio, Maxim e Kelly\n💰 24.000 de ouro\n✅ Troca nick grátis"
+            "id": 8,
+            "nome": "Disney + Star Plus (Tela Privada) + Brinde [1 Mês]",
+            "emoji": "🎥",
+            "preco": calcularPrecoComAumento(6.99),
+            "estoque": 33,
+            "descricao": "Acesso a conta com perfil exclusivo protegido por PIN. Inclui brinde de 1 mês."
+        }
+    ],
+
+    Hbomax: [
+        {
+            "id": 9,
+            "nome": "HBOMAX TELA PRIVADA + PIN (STANDARD)",
+            "emoji": "💖",
+            "preco": calcularPrecoComAumento(2.50),
+            "estoque": 54,
+            "descricao": "Plano Standard Full HD. Até 2 dispositivos simultâneos. 1 perfil por usuário. Pode dar tela cheia, sem reembolso caso ocorra."
         },
         {
-            id: 404,
-            nome: "NÍVEL 15 + 50 DIMAS + REI CAVEIRA + 24K OURO",
-            emoji: "👑",
-            preco: calcularPrecoComAumento(4.99),
-            destaque: "SKIN",
-            estoque: 979,
-            descricao: "⭐ Personagens: Andrew, Alok, Luna, Moco, Hayato, Antonio, Maxim e Kelly\n💰 24.000 de ouro\n✅ Skin Rei Caveira\n✅ Troca nick grátis"
-        },
+            "id": 10,
+            "nome": "HBOMAX CONTA PRIVADA NO MEU EMAIL (STANDARD)",
+            "emoji": "⭐",
+            "preco": calcularPrecoComAumento(4.20),
+            "estoque": 30,
+            "descricao": "Plano Standard Full HD. Até 2 dispositivos simultâneos. Conta privada, apenas você na conta. Garantia de 30 dias."
+        }
+    ],
+    Crunchyroll: [
         {
-            id: 405,
-            nome: "10 SALAS PERSONALIZADAS + TROCA NICK",
-            emoji: "🎪",
-            preco: calcularPrecoComAumento(9.99),
-            destaque: "SALAS",
-            estoque: 851,
-            descricao: "✅ 10 Salas Personalizadas\n✅ Troca de nick grátis\n✅ Entrega imediata"
-        },
+            "id": 11,
+            "nome": "Crunchyroll Mega Fan 30 Dias + CANVA (Brinde)",
+            "emoji": "⚡",
+            "preco": calcularPrecoComAumento(2.00),
+            "estoque": 8,
+            "descricao": "Conta compartilhada com o plano Mega Fan, garantia de 30 dias de funcionamento. Acesso a mais de 20.000 conteúdos de mangás e animes. Brinde: Canva. Proibido trocar a senha."
+        }
+    ],
+    Canva: [
         {
-            id: 406,
-            nome: "17 SALAS PERSONALIZADAS + TROCA NICK",
-            emoji: "🎪",
-            preco: calcularPrecoComAumento(17.00),
-            destaque: "MEGA SALAS",
-            estoque: 950,
-            descricao: "✅ 17 Salas Personalizadas\n✅ Troca de nick grátis\n✅ Entrega imediata\n✅ Melhor custo-benefício"
-        },
-        {
-            id: 407,
-            nome: "LV2 + SKIN SAKURA + REI CAVEIRA + MOCHILA",
-            emoji: "🌸",
-            preco: calcularPrecoComAumento(25.00),
-            destaque: "EXCLUSIVO",
-            estoque: 967,
-            descricao: "🌸 Skin Sakura\n👑 Skin Rei Caveira\n🎒 Mochila e Gelo Rosa\n💃 Emote exclusivo\n✅ Troca nick grátis"
-        },
-        {
-            id: 408,
-            nome: "NÍVEL 15 + 50 DIMAS + 26K OURO (SEM TROCA NICK)",
-            emoji: "💰",
-            preco: calcularPrecoComAumento(2.79),
-            destaque: "ECONÔMICO",
-            estoque: 898,
-            descricao: "⭐ Personagens básicos\n💰 26.000 de ouro\n❌ Sem troca de nick"
-        },
-        {
-            id: 409,
-            nome: "10 CONTAS NÍVEL 15 + 50 DIMAS + 24K OURO",
-            emoji: "📦",
-            preco: calcularPrecoComAumento(34.99),
-            destaque: "PACOTE",
-            estoque: 993,
-            descricao: "✅ 10 Contas completas\n⭐ Nível 15 cada\n💎 50 Diamantes cada\n💰 24.000 ouro cada\n✅ Troca nick grátis"
+            "id": 12,
+            "nome": "CANVA PRO 30 DIAS + 4 BRINDES + ENTREGA AUTOMATICA",
+            "emoji": "🤖",
+            "preco": calcularPrecoComAumento(2.00),
+            "estoque": 10,
+            "descricao": "Aproveite os benefícios do Canva Pro por 30 dias com nosso plano compartilhado. Garantia de 30 dias de funcionamento e suporte. Receba 4 brindes com a compra. Link entregue automaticamente após a compra."
         }
     ],
     
-    animefighters: [
+    SPOTIFY: [
         {
-            id: 8,
-            nome: "Full Qualquer Booster Comum",
-            emoji: "⚔️",
-            preco: calcularPrecoComAumento(1.00),
-            destaque: "PROMOÇÃO"
+            "id": 13,
+            "nome": "1000 Plays Premium ⚡",
+            "emoji": "💎",
+            "preco": calcularPrecoComAumento(2.90),
+            "estoque": 99476,
+            "descricao": "NÃO é Spotify Premium. Adquira 1000 plays para suas músicas. Serviço garantido com reposição em caso de queda maior que 5%."
         },
         {
-            id: 9,
-            nome: "Full Qualquer Super Booster",
-            emoji: "🔥",
-            preco: calcularPrecoComAumento(1.50),
-            destaque: "EXCLUSIVO"
+            "id": 14,
+            "nome": "1000 Plays Brasileiros ⚡🇧🇷",
+            "emoji": "🇧🇷",
+            "preco": calcularPrecoComAumento(4.90),
+            "estoque": 99355,
+            "descricao": "Adquira 1000 plays para suas músicas, com foco no público brasileiro. Garantia de 30 dias com reposição em caso de queda."
         },
         {
-            id: 10,
-            nome: "200x Clone Token",
-            emoji: "🎴",
-            preco: calcularPrecoComAumento(1.00),
-            destaque: "PROMOÇÃO"
+            "id": 15,
+            "nome": "1000 Seguidores Mundiais 👥",
+            "emoji": "🌍",
+            "preco": calcularPrecoComAumento(5.90),
+            "estoque": 99755,
+            "descricao": "Adquira 1000 seguidores mundiais para suas redes sociais. Ideal para influenciadores e marcas. Garantia de 30 dias."
         },
         {
-            id: 11,
-            nome: "50x Dungeon Token",
-            emoji: "🏰",
-            preco: calcularPrecoComAumento(1.00),
-            destaque: "OFERTA"
+            "id": 16,
+            "nome": "1000 Seguidores Brasileiros 👥🇧🇷",
+            "emoji": "🇧🇷",
+            "preco": calcularPrecoComAumento(7.90),
+            "estoque": 99988,
+            "descricao": "Adquira 1000 seguidores brasileiros para sua conta. Perfeito para quem busca crescer no Brasil. Garantia de 30 dias."
         },
         {
-            id: 12,
-            nome: "100x Defence Token",
-            emoji: "🛡️",
-            preco: calcularPrecoComAumento(1.00),
-            destaque: "LIMITADO"
+            "id": 17,
+            "nome": "1000 Salvos ✅",
+            "emoji": "✅",
+            "preco": calcularPrecoComAumento(5.90),
+            "estoque": 99966,
+            "descricao": "Adquira 1000 salvos para suas músicas ou posts. Aumente a visibilidade e engajamento das suas publicações. Garantia de 30 dias."
         }
     ],
-    
-    instagram: [
+    appletv: [
         {
-            id: 201,
-            nome: "150 seguidores + 150 CURTIDAS - (MUNDIAIS)",
-            emoji: "📈",
-            preco: calcularPrecoComAumento(2.00),
-            destaque: "COMBO",
-            estoque: 9461,
-            descricao: "✅ Seguidores de alta qualidade\n✅ Garantia de 30 dias\n✅ Entrega imediata"
+            "id": 18,
+            "nome": "TV APPLE - 30 DIAS (PRIVADA)",
+            "emoji": "📺",
+            "preco": calcularPrecoComAumento(3.99),
+            "estoque": 2,
+            "descricao": "Acesse a TV Apple com qualidade superior em 4K HDR. Conta compartilhada, disponível por 30 dias. Ideal para TVs e navegadores."
         },
         {
-            id: 202,
-            nome: "250 seguidores + 250 CURTIDAS - (MUNDIAIS)",
-            emoji: "👥",
-            preco: calcularPrecoComAumento(4.90),
-            destaque: "COMBO",
-            estoque: 9884,
-            descricao: "✅ Seguidores de alta qualidade\n✅ Garantia de 30 dias\n✅ Entrega imediata"
-        },
-        {
-            id: 203,
-            nome: "500 seguidores + 500 CURTIDAS - (MUNDIAIS)",
-            emoji: "👥",
-            preco: calcularPrecoComAumento(9.90),
-            destaque: "POPULAR",
-            estoque: 9936,
-            descricao: "✅ Seguidores de alta qualidade\n✅ Garantia de 30 dias\n✅ Entrega imediata"
-        },
-        {
-            id: 204,
-            nome: "1000 seguidores + 1000 CURTIDAS - (MUNDIAIS)",
-            emoji: "👥",
-            preco: calcularPrecoComAumento(19.90),
-            destaque: "MELHOR OFERTA",
-            estoque: 9922,
-            descricao: "✅ Seguidores de alta qualidade\n✅ Garantia de 30 dias\n✅ Entrega imediata"
-        },
-        {
-            id: 205,
-            nome: "100 SEGUIDORES - (BRASILEIROS) - ALTA QUALIDADE",
-            emoji: "🇧🇷",
-            preco: calcularPrecoComAumento(4.99),
-            destaque: "BR",
-            estoque: 9897,
-            descricao: "✅ Seguidores brasileiros reais\n✅ Garantia de 30 dias\n✅ Alta retenção"
-        },
-        {
-            id: 206,
-            nome: "1000 SEGUIDORES - (BRASILEIROS) - ALTA QUALIDADE",
-            emoji: "🇧🇷",
-            preco: calcularPrecoComAumento(39.90),
-            destaque: "PREMIUM BR",
-            estoque: 9972,
-            descricao: "✅ Seguidores brasileiros reais\n✅ Garantia de 30 dias\n✅ Alta retenção"
-        },
-        {
-            id: 207,
-            nome: "100 SEGUIDORAS - (BRASILEIRAS) - (SÓ MULHERES)",
-            emoji: "👩",
-            preco: calcularPrecoComAumento(4.99),
-            destaque: "MULHERES",
-            estoque: 9925,
-            descricao: "✅ Seguidoras brasileiras\n✅ Perfis femininos\n✅ Garantia de 30 dias"
-        },
-        {
-            id: 208,
-            nome: "100 SEGUIDORES - (BRASILEIROS) - (SÓ HOMEM)",
-            emoji: "👨",
-            preco: calcularPrecoComAumento(4.99),
-            destaque: "HOMENS",
-            estoque: 9985,
-            descricao: "✅ Seguidores brasileiros\n✅ Perfis masculinos\n✅ Garantia de 30 dias"
-        },
-        {
-            id: 209,
-            nome: "2000 CURTIDAS MUNDIAIS - (ALTA QUALIDADE)",
-            emoji: "❤️",
-            preco: calcularPrecoComAumento(2.00),
-            destaque: "CURTIDAS",
-            estoque: 99528,
-            descricao: "✅ Curtidas de alta qualidade\n✅ Entrega gradual\n✅ Garantia de 30 dias"
-        },
-        {
-            id: 210,
-            nome: "10.000 CURTIDAS MUNDIAIS - (ALTA QUALIDADE)",
-            emoji: "❤️",
-            preco: calcularPrecoComAumento(4.99),
-            destaque: "MEGA PACK",
-            estoque: 999820,
-            descricao: "✅ Curtidas de alta qualidade\n✅ Entrega gradual\n✅ Garantia de 30 dias"
-        },
-        {
-            id: 211,
-            nome: "20.000 CURTIDAS MUNDIAIS - (ALTA QUALIDADE)",
-            emoji: "❤️",
-            preco: calcularPrecoComAumento(9.99),
-            destaque: "ULTRA PACK",
-            estoque: 99884,
-            descricao: "✅ Curtidas de alta qualidade\n✅ Entrega gradual\n✅ Garantia de 30 dias"
-        },
-        {
-            id: 212,
-            nome: "250 CURTIDAS BRASILEIRAS - (ALTA QUALIDADE)",
-            emoji: "❤️",
-            preco: calcularPrecoComAumento(2.00),
-            destaque: "BR",
-            estoque: 99311,
-            descricao: "✅ Curtidas brasileiras\n✅ Entrega rápida\n✅ Alta qualidade"
-        },
-        {
-            id: 213,
-            nome: "500 CURTIDAS BRASILEIRAS - (ALTA QUALIDADE)",
-            emoji: "🇧🇷",
-            preco: calcularPrecoComAumento(3.99),
-            destaque: "BR PACK",
-            estoque: 99538,
-            descricao: "✅ Curtidas brasileiras\n✅ Entrega rápida\n✅ Alta qualidade"
-        },
-        {
-            id: 214,
-            nome: "100 VISUALIZAÇÕES PARA STORY - (BRASILEIROS)",
-            emoji: "👁️",
-            preco: calcularPrecoComAumento(2.00),
-            destaque: "STORIES BR",
-            estoque: 99905,
-            descricao: "✅ Visualizações brasileiras\n✅ Entrega rápida\n✅ Stories"
-        },
-        {
-            id: 215,
-            nome: "500 VISUALIZAÇÕES PARA STORY - (BRASILEIROS)",
-            emoji: "👁️",
-            preco: calcularPrecoComAumento(6.99),
-            destaque: "STORIES BR",
-            estoque: 99975,
-            descricao: "✅ Visualizações brasileiras\n✅ Entrega rápida\n✅ Stories"
-        },
-        {
-            id: 216,
-            nome: "1000 VISUALIZAÇÕES PARA STORY - (BRASILEIROS)",
-            emoji: "👁️",
-            preco: calcularPrecoComAumento(14.99),
-            destaque: "STORIES BR",
-            estoque: 999988,
-            descricao: "✅ Visualizações brasileiras\n✅ Entrega rápida\n✅ Stories"
-        },
-        {
-            id: 217,
-            nome: "2500 VISUALIZAÇÕES EM REELS - IGTV - VIDEO",
-            emoji: "📱",
-            preco: calcularPrecoComAumento(5.00),
-            destaque: "REELS",
-            estoque: 99704,
-            descricao: "✅ Visualizações em Reels\n✅ Entrega gradual\n✅ Aumenta alcance"
-        },
-        {
-            id: 218,
-            nome: "5000 VISUALIZAÇÕES EM REELS - IGTV - VIDEO",
-            emoji: "📱",
-            preco: calcularPrecoComAumento(10.00),
-            destaque: "REELS",
-            estoque: 99790,
-            descricao: "✅ Visualizações em Reels\n✅ Entrega gradual\n✅ Aumenta alcance"
-        },
-        {
-            id: 219,
-            nome: "10.000 VISUALIZAÇÕES EM REELS - IGTV - VIDEO",
-            emoji: "📱",
-            preco: calcularPrecoComAumento(20.00),
-            destaque: "REELS",
-            estoque: 99942,
-            descricao: "✅ Visualizações em Reels\n✅ Entrega gradual\n✅ Aumenta alcance"
-        },
-        {
-            id: 220,
-            nome: "20.000 VISUALIZAÇÕES EM REELS - IGTV - VIDEO",
-            emoji: "📱",
-            preco: calcularPrecoComAumento(55.90),
-            destaque: "REELS PREMIUM",
-            estoque: 99983,
-            descricao: "✅ Visualizações em Reels\n✅ Entrega gradual\n✅ Aumenta alcance"
-        },
-        {
-            id: 221,
-            nome: "50.000 VISUALIZAÇÕES EM REELS - IGTV - VIDEO",
-            emoji: "📱",
-            preco: calcularPrecoComAumento(125.00),
-            destaque: "REELS ULTRA",
-            estoque: 99996,
-            descricao: "✅ Visualizações em Reels\n✅ Entrega gradual\n✅ Aumenta alcance"
-        },
-        {
-            id: 222,
-            nome: "100 ESPECTADORES - INSTAGRAM LIVE STREAM 1 HORA",
-            emoji: "📺",
-            preco: calcularPrecoComAumento(2.99),
-            destaque: "LIVE",
-            estoque: 99989,
-            descricao: "✅ Espectadores para Live\n✅ 1 hora de duração\n✅ Aumenta engajamento"
-        },
-        {
-            id: 223,
-            nome: "100 ESPECTADORES - INSTAGRAM LIVE STREAM 2 HORAS",
-            emoji: "📺",
-            preco: calcularPrecoComAumento(5.98),
-            destaque: "LIVE PLUS",
-            estoque: 999997,
-            descricao: "✅ Espectadores para Live\n✅ 2 horas de duração\n✅ Aumenta engajamento"
-        },
-        {
-            id: 224,
-            nome: "100 VOTOS EM ENQUETE PARA STORY - OPÇÃO 1",
-            emoji: "📊",
-            preco: calcularPrecoComAumento(2.50),
-            destaque: "ENQUETE",
-            estoque: 9915,
-            descricao: "✅ Votos em enquetes\n✅ Opção 1\n✅ Entrega rápida"
-        },
-        {
-            id: 225,
-            nome: "100 VOTOS EM ENQUETE PARA STORY - OPÇÃO 2",
-            emoji: "📊",
-            preco: calcularPrecoComAumento(2.50),
-            destaque: "ENQUETE",
-            estoque: 9820,
-            descricao: "✅ Votos em enquetes\n✅ Opção 2\n✅ Entrega rápida"
+            "id": 19,
+            "nome": "APPLE TV+ MLS SEASON PASS - 30 DIAS (PRIVADA)",
+            "emoji": "⚽️",
+            "preco": calcularPrecoComAumento(5.99),
+            "estoque": 3,
+            "descricao": "Acesse o Apple TV+ com o MLS Season Pass. Conta privada, disponível em 4K HDR e válida por 30 dias. Ideal para assistir na sua TV Apple."
         }
     ],
-    
-    tiktok: [
+    youtube: [
         {
-            id: 301,
-            nome: "50.000 Visualizações No TikTok (SEM QUEDA)",
-            emoji: "🎵",
-            preco: calcularPrecoComAumento(4.55),
-            destaque: "VIEWS",
-            estoque: 377,
-            descricao: "✅ Sem queda\n✅ Entrega rápida\n✅ Qualidade premium"
+            "id": 20,
+            "nome": "YouTube Premium + YouTube Music 30 dias via link",
+            "emoji": "🎥",
+            "preco": calcularPrecoComAumento(4.49),
+            "estoque": 4,
+            "descricao": "Receba um link para ativar o YouTube Premium e YouTube Music. Acesso válido por 30 dias. Suporte garantido durante o período."
         },
         {
-            id: 302,
-            nome: "100.000 Visualizações No Tiktok (SEM QUEDA)",
-            emoji: "🎥",
-            preco: calcularPrecoComAumento(8.95),
-            destaque: "MEGA VIEWS",
-            estoque: 891,
-            descricao: "✅ Sem queda\n✅ Entrega rápida\n✅ Qualidade premium"
-        },
-        {
-            id: 303,
-            nome: "200.000 Visualizações no TikTok (SEM QUEDA)",
-            emoji: "🎥",
-            preco: calcularPrecoComAumento(19.85),
-            destaque: "ULTRA VIEWS",
-            estoque: 902,
-            descricao: "✅ Sem queda\n✅ Entrega rápida\n✅ Qualidade premium"
-        },
-        {
-            id: 304,
-            nome: "100 SEGUIDORES NO TIKTOK",
-            emoji: "👥",
-            preco: calcularPrecoComAumento(5.55),
-            destaque: "SEGUIDORES",
-            estoque: 196,
-            descricao: "✅ Seguidores de qualidade\n✅ Entrega gradual\n✅ Perfis reais"
-        },
-        {
-            id: 305,
-            nome: "500 SEGUIDORES NO TIKTOK",
-            emoji: "👥",
-            preco: calcularPrecoComAumento(17.50),
-            destaque: "SEGUIDORES",
-            estoque: 197,
-            descricao: "✅ Seguidores de qualidade\n✅ Entrega gradual\n✅ Perfis reais"
-        },
-        {
-            id: 306,
-            nome: "1000 SEGUIDORES NO TIKTOK",
-            emoji: "👥",
-            preco: calcularPrecoComAumento(30.00),
-            destaque: "SEGUIDORES",
-            estoque: 184,
-            descricao: "✅ Seguidores de qualidade\n✅ Entrega gradual\n✅ Perfis reais"
-        },
-        {
-            id: 307,
-            nome: "Combo 50k Views + 100 seguidores + 500 curtidas",
-            emoji: "💥",
-            preco: calcularPrecoComAumento(14.25),
-            destaque: "COMBO",
-            estoque: 185,
-            descricao: "✅ Pacote completo\n✅ Melhor custo-benefício\n✅ Entrega otimizada"
-        },
-        {
-            id: 308,
-            nome: "250 Curtidas NO TIKTOK",
-            emoji: "♥️",
-            preco: calcularPrecoComAumento(4.55),
-            destaque: "CURTIDAS",
-            estoque: 121,
-            descricao: "✅ Curtidas reais\n✅ Entrega rápida\n✅ Sem queda"
-        },
-        {
-            id: 309,
-            nome: "500 Curtidas NO TIKTOK",
-            emoji: "♥️",
-            preco: calcularPrecoComAumento(6.55),
-            destaque: "CURTIDAS",
-            estoque: 131,
-            descricao: "✅ Curtidas reais\n✅ Entrega rápida\n✅ Sem queda"
-        },
-        {
-            id: 310,
-            nome: "1000 Curtidas NO TIKTOK",
-            emoji: "♥️",
-            preco: calcularPrecoComAumento(7.55),
-            destaque: "CURTIDAS",
-            estoque: 68,
-            descricao: "✅ Curtidas reais\n✅ Entrega rápida\n✅ Sem queda"
-        },
-        {
-            id: 311,
-            nome: "5000 Curtidas NO TIKTOK",
-            emoji: "♥️",
-            preco: calcularPrecoComAumento(23.99),
-            destaque: "MEGA PACK",
-            estoque: 149,
-            descricao: "✅ Curtidas reais\n✅ Entrega rápida\n✅ Sem queda"
-        },
-        {
-            id: 312,
-            nome: "10.000 Curtidas NO TIKTOK",
-            emoji: "♥️",
-            preco: calcularPrecoComAumento(47.55),
-            destaque: "ULTRA PACK",
-            estoque: 144,
-            descricao: "✅ Curtidas reais\n✅ Entrega rápida\n✅ Sem queda"
-        },
-        {
-            id: 313,
-            nome: "500 SALVAR VIDEOS(FAVORITOS) NO TIKTOK",
-            emoji: "🔖",
-            preco: calcularPrecoComAumento(3.85),
-            destaque: "FAVORITOS",
-            estoque: 87,
-            descricao: "✅ Salvamentos reais\n✅ Aumenta engajamento\n✅ Entrega rápida"
-        },
-        {
-            id: 314,
-            nome: "500 COMPARTILHAMENTOS NO TIKTOK",
-            emoji: "🔄",
-            preco: calcularPrecoComAumento(3.85),
-            destaque: "SHARES",
-            estoque: 134,
-            descricao: "✅ Compartilhamentos reais\n✅ Aumenta alcance\n✅ Entrega rápida"
-        },
-        {
-            id: 315,
-            nome: "500 VIEWS NO STORYS NO TIKTOK",
-            emoji: "👁️",
-            preco: calcularPrecoComAumento(3.85),
-            destaque: "STORIES",
-            estoque: 150,
-            descricao: "✅ Visualizações em stories\n✅ Entrega rápida\n✅ Sem queda"
-        },
-        {
-            id: 316,
-            nome: "500 CURTIDAS NO STORYS NO TIKTOK",
-            emoji: "❤️",
-            preco: calcularPrecoComAumento(3.85),
-            destaque: "STORIES",
-            estoque: 150,
-            descricao: "✅ Curtidas em stories\n✅ Entrega rápida\n✅ Sem queda"
+            "id": 21,
+            "nome": "YouTube Premium Família no seu e-mail 30 dias",
+            "emoji": "🎶",
+            "preco": calcularPrecoComAumento(5.99),
+            "estoque": 59,
+            "descricao": "Conta completa do YouTube Premium e YouTube Music em modo Família. Envie seu Gmail e senha para ativação. Acesso válido por 30 dias."
         }
     ],
-    
-    valorant: [
+    combos: [
         {
-            id: 401,
-            nome: "NIVEL 16 (COMP NÃO LIBERADO)",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(17.90),
-            destaque: "COMP NÃO LIBERADO",
-            estoque: 44,
-            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+            "id": 22,
+            "nome": "YouTube Premium + Canva Link 30 dias",
+            "emoji": "🎥",
+            "preco": calcularPrecoComAumento(3.99),
+            "estoque": 10,
+            "descricao": "Acesso ao YouTube Premium e Canva Pro por 30 dias."
         },
         {
-            id: 402,
-            nome: "NIVEL 17 (COMP NÃO LIBERADO)",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(21.90),
-            destaque: "COMP NÃO LIBERADO",
-            estoque: 97,
-            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+            "id": 23,
+            "nome": "Star Plus / Disney / ESPN + Canva Link 30 dias",
+            "emoji": "🌟",
+            "preco": calcularPrecoComAumento(10.99),
+            "estoque": 16,
+            "descricao": "Acesso ao Star Plus, Disney e ESPN com Canva Pro por 30 dias."
         },
         {
-            id: 403,
-            nome: "UNRANKED/Expirado (COMP LIBERADO)",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(29.90),
-            destaque: "COMP LIBERADO",
-            estoque: 13,
-            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+            "id": 24,
+            "nome": "Prime Video + Canva Pro Link 30 dias",
+            "emoji": "🎬",
+            "preco": calcularPrecoComAumento(2.00),
+            "estoque": 35,
+            "descricao": "Acesso ao Prime Video e Canva Pro por 30 dias."
         },
         {
-            id: 404,
-            nome: "UNRANKED (COMP LIBERADO E NUNCA JOGADO)",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(34.90),
-            destaque: "COMP LIBERADO",
-            estoque: 15,
-            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+            "id": 25,
+            "nome": "HBO Max + Canva Link 30 dias",
+            "emoji": "📺",
+            "preco": calcularPrecoComAumento(4.99),
+            "estoque": 16,
+            "descricao": "Acesso ao HBO Max e Canva Pro por 30 dias."
         },
         {
-            id: 405,
-            nome: "FERRO (1-3)",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(39.90),
-            destaque: "RANK",
-            estoque: 3,
-            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+            "id": 26,
+            "nome": "Prime Video + HBO Max 30 dias Tela Privada",
+            "emoji": "🎥",
+            "preco": calcularPrecoComAumento(6.99),
+            "estoque": 14,
+            "descricao": "Acesso ao Prime Video e HBO Max em tela privada por 30 dias."
         },
         {
-            id: 406,
-            nome: "BRONZE (1-3)",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(38.90),
-            destaque: "RANK",
-            estoque: 11,
-            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+            "id": 27,
+            "nome": "YouTube Premium + Star Plus 30 dias",
+            "emoji": "🎥",
+            "preco": calcularPrecoComAumento(7.99),
+            "estoque": 10,
+            "descricao": "Acesso ao YouTube Premium e Star Plus por 30 dias."
         },
         {
-            id: 407,
-            nome: "PRATA (1-3)",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(39.90),
-            destaque: "RANK",
-            estoque: 22,
-            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+            "id": 28,
+            "nome": "Prime Video + YouTube Premium 30 dias",
+            "emoji": "🎬",
+            "preco": calcularPrecoComAumento(8.99),
+            "estoque": 15,
+            "descricao": "Acesso ao Prime Video e YouTube Premium por 30 dias."
         },
         {
-            id: 408,
-            nome: "PLATINA (1-3)",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(59.90),
-            destaque: "RANK",
-            estoque: 8,
-            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
+            "id": 29,
+            "nome": "HBO Max + YouTube Premium 30 dias",
+            "emoji": "📺",
+            "preco": calcularPrecoComAumento(9.99),
+            "estoque": 12,
+            "descricao": "Acesso ao HBO Max e YouTube Premium por 30 dias."
         },
         {
-            id: 409,
-            nome: "COMP LIBERADO (APENAS PARA CONSOLE)",
-            emoji: "🎮",
-            preco: calcularPrecoComAumento(19.90),
-            destaque: "COMP LIBERADO",
-            estoque: 28,
-            descricao: "- Modo ranked / competitivo liberado;\n- Full acesso (Você pode vincular em seu e-mail)."
-        },
-    ],
-    
-    xbox: [
-        {
-            id: 501,
-            nome: "GAME PASS ULTIMATE COMPARTILHADO [PC]",
-            emoji: "📧",
-            preco: calcularPrecoComAumento(3.90),
-            destaque: "PC ONLY",
-            estoque: 58,
-            descricao: "⚡ GAME PASS ULTIMATE 30 DIAS COMPARTILHADA [COMPUTADOR]\n\n❌ IMPORTANTE:\n- Funciona APENAS no PC/COMPUTADOR\n- NÃO funciona em XCLOUD ou CONSOLES\n- Use o aplicativo Xbox para PC\n\n✅ INCLUI:\n- Garantia de 1 mês (pode durar mais)\n- Compartilhável com conta principal\n- Centenas de jogos para PC\n- EA Play (jogos selecionados)\n\n⚠️ OBSERVAÇÕES:\n- Conta compartilhada com outros usuários\n- Linux não é compatível 🚫\n- Jogos Ubisoft/Minecraft/RIOT/Blizzard: apenas no acesso compartilhado"
+            "id": 30,
+            "nome": "Crunchyroll 30 dias + Canva Pro 30 dias",
+            "emoji": "🎮",
+            "preco": calcularPrecoComAumento(2.99),
+            "estoque": 8,
+            "descricao": "Acesso ao Crunchyroll e Canva Pro por 30 dias."
         },
         {
-            id: 502,
-            nome: "XBOX ULTIMATE 1 MÊS [CÓDIGO/KEY]",
-            emoji: "⏬",
-            preco: calcularPrecoComAumento(34.99),
-            destaque: "CÓDIGO OFICIAL",
-            estoque: 19,
-            descricao: "🔑 CÓDIGO OFICIAL 25 DÍGITOS\n\n✅ FUNCIONALIDADES:\n- Funciona em TODOS os dispositivos\n- XBOX, PC, CELULAR e TV\n- xCloud Gaming incluso\n- Benefícios Ultimate completos\n\n⚠️ REQUISITOS:\n- APENAS para contas que NUNCA tiveram Game Pass\n- Necessário método de pagamento válido\n- Não precisa ter saldo no cartão\n\n📦 ENTREGA:\n- Código enviado automaticamente\n- Ative imediatamente após a compra\n- Tutorial de ativação incluso"
+            "id": 31,
+            "nome": "Conta YouTube Premium Família no seu Gmail + Canva Link",
+            "emoji": "🎶",
+            "preco": calcularPrecoComAumento(5.99),
+            "estoque": 12,
+            "descricao": "Conta YouTube Premium Família e Canva Pro por 30 dias."
         },
         {
-            id: 503,
-            nome: "PC GAME PASS 1 MÊS [CÓDIGO/KEY]",
-            emoji: "🍉",
-            preco: calcularPrecoComAumento(19.80),
-            destaque: "PC GLOBAL",
-            estoque: 27,
-            descricao: "💻 EXCLUSIVO PARA PC\n\n✅ INCLUI:\n- 30 dias de Game Pass PC\n- Código 25 dígitos GLOBAL\n- EA Play sem custo extra\n- Benefícios Riot Games\n- Não precisa de VPN\n\n⚠️ IMPORTANTE:\n- Válido só para NOVAS contas\n- Requer método de pagamento\n- Não precisa ter saldo\n\n🎮 ATIVE IMEDIATAMENTE:\n- Entrega automática\n- Suporte disponível"
-        },
-        {
-            id: 504,
-            nome: "PC GAME PASS 14 DIAS [CÓDIGO/KEY]",
-            emoji: "🎯",
-            preco: calcularPrecoComAumento(6.99),
-            destaque: "TESTE",
-            estoque: 50,
-            descricao: "🎮 GAME PASS PC 14 DIAS\n\n✅ DETALHES:\n- Código 25 dígitos GLOBAL\n- Não precisa de VPN\n- EA Play incluso\n- Benefícios Riot Games\n\n⚠️ REQUISITOS:\n- Apenas para NOVAS contas\n- Método de pagamento válido\n- Exclusivo para PC\n\n📦 ENTREGA:\n- Automática e imediata\n- Suporte disponível"
-        },
-        {
-            id: 505,
-            nome: "CONTA XBOX COM CARTÃO [ATIVAÇÃO]",
-            emoji: "💳",
-            preco: calcularPrecoComAumento(3.99),
-            destaque: "ATIVAÇÃO",
-            estoque: 9,
-            descricao: "💳 CONTA PRONTA PARA ATIVAÇÃO\n\n✅ INCLUI:\n- Conta com cartão vinculado\n- Nunca usou Game Pass\n- Full acesso (pode alterar dados)\n\n⚠️ IMPORTANTE:\n- APENAS para ativar códigos\n- NÃO tem Game Pass incluso\n- NÃO serve para comprar\n\n📦 EXTRAS:\n- Entrega automática\n- Tutorial incluso"
-        },
-        {
-            id: 506,
-            nome: "ATIVAÇÃO DE CÓDIGO [SUPORTE]",
-            emoji: "🌞",
-            preco: calcularPrecoComAumento(12.99),
-            destaque: "SUPORTE",
-            estoque: 6,
-            descricao: "🔧 SERVIÇO DE ATIVAÇÃO\n\n✅ OFERECEMOS:\n- Ativação de qualquer código\n- Suporte especializado\n- Garantia de funcionamento\n\n⚠️ IMPORTANTE:\n- Você deve ter o código\n- Atendimento prioritário\n\n💡 IDEAL PARA:\n- Problemas na ativação\n- Dúvidas no processo"
+            "id": 32,
+            "nome": "Monte seu Combo 3 Streamings Compartilhado",
+            "emoji": "☀️",
+            "preco": calcularPrecoComAumento(18.99),
+            "estoque": 5,
+            "descricao": "Monte seu combo com 3 streamings compartilhados."
         }
-    ],
-}; 
+    ]
+};

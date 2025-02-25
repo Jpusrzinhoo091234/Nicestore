@@ -1,59 +1,81 @@
 const categorias = [
     {
-        id: "todos",
-        nome: "ver tudo",
+        id: "COMBOS",
+        nome: "COMBOS",
         cor: "#000000",
+        emoji: "📺",
         descricao: "Todos os produtos"
     },
     {
-        id: "instagram",
-        nome: "instagram",
-        cor: "#E1306C",
-        emoji: "📸",
-        descricao: "Serviços para Instagram"
-    },
-    {
-        id: "streaming",
-        nome: "streaming",
+        id: "Netflix",
+        nome: "Netflix",
         cor: "#E50914",
         emoji: "📺",
         descricao: "Serviços de streaming"
     },
     {
-        id: "freefire",
-        nome: "free fire",
-        cor: "#FF6B00",
-        emoji: "🎮",
-        descricao: "Itens para Free Fire"
+        id: "Paramount",
+        nome: "Paramount",
+        cor: "#FF0000",
+        emoji: "📺",
+        descricao: "Serviços de games"
     },
     {
-        id: "animefighters",
-        nome: "anime fighters",
-        cor: "#7C4DFF",
-        emoji: "⚔️",
-        descricao: "Itens para Anime Fighters"
-    },
-    {
-        id: "tiktok",
-        nome: "tiktok",
+        id: "DisneyPlus",
+        nome: "Disney +Star Plus",
         cor: "#000000",
-        emoji: "🎥",
-        descricao: "Serviços para TikTok"
+        emoji: "📺",
+        descricao: "Todos os produtos"
     },
     {
-        id: "valorant",
-        nome: "valorant",
-        cor: "#A3A3A3",
-        emoji: "🎮",
-        descricao: "Contas de Valorant"
+        id: "Hbomax",
+        nome: "HBOMAX",
+        cor: "#000000",
+        emoji: "📺",
+        descricao: "Todos os produtos"
     },
     {
-        id: "xbox",
-        nome: "xbox",
-        cor: "#107C10",
-        emoji: "🎮",
-        descricao: "Produtos e serviços Xbox"
+        id: "Crunchyroll",
+        nome: "Crunchyroll",
+        cor: "#000000",
+        emoji: "📺",
+        descricao: "Todos os produtos"
     },
+    {
+        id: "Canva",
+        nome: "Canva",
+        cor: "#000000",
+        emoji: "🤖",
+        descricao: "Todos os produtos"
+    },
+    {
+        id: "SPOTIFY",
+        nome: "SPOTIFY",
+        cor: "#000000",
+        emoji: "🎶",
+        descricao: "Todos os produtos"
+    },
+    {
+        id: "appletv",
+        nome: "Apple TV+",
+        cor: "#000000",
+        emoji: "📺",
+        descricao: "Todos os produtos"
+    },
+    {
+        id: "youtube",
+        nome: "Youtube",
+        cor: "#000000",
+        emoji: "🎶",
+        descricao: "Todos os produtos"
+    },
+    {
+        id: "combos",
+        nome: "Combos",
+        cor: "#000000",
+        emoji: "📺",
+        descricao: "Todos os produtos"
+    }
 ];
 
 function renderizarCategorias() {
