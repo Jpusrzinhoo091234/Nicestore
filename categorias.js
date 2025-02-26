@@ -1,11 +1,11 @@
 const categorias = [
     {
-        id: "COMBOS",
-        nome: "COMBOS",
+        id: "combos",
+        nome: "Combos",
         cor: "#000000",
         emoji: "📺",
         descricao: "Todos os produtos"
-    },
+    }
     {
         id: "Netflix",
         nome: "Netflix",
@@ -69,13 +69,7 @@ const categorias = [
         emoji: "🎶",
         descricao: "Todos os produtos"
     },
-    {
-        id: "combos",
-        nome: "Combos",
-        cor: "#000000",
-        emoji: "📺",
-        descricao: "Todos os produtos"
-    }
+    
 ];
 
 function renderizarCategorias() {
