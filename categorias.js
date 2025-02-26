@@ -5,7 +5,7 @@ const categorias = [
         cor: "#000000",
         emoji: "📺",
         descricao: "Todos os produtos"
-    }
+    },
     {
         id: "Netflix",
         nome: "Netflix",
