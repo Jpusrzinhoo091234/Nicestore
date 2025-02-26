@@ -26,7 +26,7 @@ const produtos = {
             "nome": "NETFLIX 4K 30 DIAS | 1 TELA COM PIN (SOMENTE PARA TV)",
             "emoji": "📺",
             "preco": calcularPrecoComAumento(16.90),
-            "estoque": 146399,
+            "estoque": 23,
             "descricao": "Plano Premium 4K Ultra HD\n🔹 Suporte de 30 dias\n🔹 Envio rápido\n🔹 Conta privada\n🔹 Exclusivo para TV"
         },
         {
@@ -34,7 +34,7 @@ const produtos = {
             "nome": "NETFLIX 4K 30 DIAS | 1 TELA COM PIN",
             "emoji": "📺",
             "preco": calcularPrecoComAumento(15.90),
-            "estoque": 13568,
+            "estoque": 12,
             "descricao": "Plano Premium 4K Ultra HD\n🔹 Suporte de 30 dias\n🔹 Envio rápido\n🔹 Conta privada\n🔹 Funciona em todos os dispositivos"
         },
         {
@@ -42,7 +42,7 @@ const produtos = {
             "nome": "NETFLIX 4K 10 DIAS COMPARTILHADA",
             "emoji": "📺",
             "preco": calcularPrecoComAumento(5.89),
-            "estoque": 5038,
+            "estoque": 44,
             "descricao": "Plano Premium 4K Ultra HD\n🔹 Suporte de 10 dias\n🔹 Envio rápido\n🔹 Conta compartilhada\n🔹 Funciona em todos os dispositivos\n🔹 Pode dar telas simultâneas"
         },
         {
@@ -50,7 +50,7 @@ const produtos = {
             "nome": "NETFLIX 4K 7 DIAS COMPARTILHADA (SOMENTE PARA TV)",
             "emoji": "📺",
             "preco": calcularPrecoComAumento(2.99),
-            "estoque": 112,
+            "estoque": 32,
             "descricao": "Plano Premium 4K Ultra HD\n🔹 Suporte de 7 dias\n🔹 Envio rápido\n🔹 Conta compartilhada\n🔹 Exclusivo para TV\n🔹 Pode dar telas simultâneas"
         }
     ],
@@ -138,7 +138,7 @@ const produtos = {
             "nome": "1000 Plays Premium ⚡",
             "emoji": "💎",
             "preco": calcularPrecoComAumento(2.90),
-            "estoque": 99476,
+            "estoque": 12,
             "descricao": "NÃO é Spotify Premium. Adquira 1000 plays para suas músicas. Serviço garantido com reposição em caso de queda maior que 5%."
         },
         {
@@ -146,7 +146,7 @@ const produtos = {
             "nome": "1000 Plays Brasileiros ⚡🇧🇷",
             "emoji": "🇧🇷",
             "preco": calcularPrecoComAumento(4.90),
-            "estoque": 99355,
+            "estoque": 7,
             "descricao": "Adquira 1000 plays para suas músicas, com foco no público brasileiro. Garantia de 30 dias com reposição em caso de queda."
         },
         {
@@ -154,7 +154,7 @@ const produtos = {
             "nome": "1000 Seguidores Mundiais 👥",
             "emoji": "🌍",
             "preco": calcularPrecoComAumento(5.90),
-            "estoque": 99755,
+            "estoque": 5,
             "descricao": "Adquira 1000 seguidores mundiais para suas redes sociais. Ideal para influenciadores e marcas. Garantia de 30 dias."
         },
         {
@@ -162,7 +162,7 @@ const produtos = {
             "nome": "1000 Seguidores Brasileiros 👥🇧🇷",
             "emoji": "🇧🇷",
             "preco": calcularPrecoComAumento(7.90),
-            "estoque": 99988,
+            "estoque": 8,
             "descricao": "Adquira 1000 seguidores brasileiros para sua conta. Perfeito para quem busca crescer no Brasil. Garantia de 30 dias."
         },
         {
@@ -170,7 +170,7 @@ const produtos = {
             "nome": "1000 Salvos ✅",
             "emoji": "✅",
             "preco": calcularPrecoComAumento(5.90),
-            "estoque": 99966,
+            "estoque": 12,
             "descricao": "Adquira 1000 salvos para suas músicas ou posts. Aumente a visibilidade e engajamento das suas publicações. Garantia de 30 dias."
         }
     ],
